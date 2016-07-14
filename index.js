@@ -40,6 +40,29 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200);
 });
 
+function callSendAPI(messageData) {
+  request({
+    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: { access_token: PAGE_ACCESS_TOKEN },
+    method: 'POST',
+    json: messageData
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var recipientId = body.recipient_id;
+      var messageId = body.message_id;
+
+      console.log("Successfully sent generic message with id %s to recipient %s", 
+        messageId, recipientId);
+    } else {
+      console.error("Unable to send message.");
+      console.error(response);
+      console.error(error);
+    }
+  });  
+}
+
+
 function sendTextMessage(sender, text) {
     messageData = {
         text:text
@@ -62,7 +85,7 @@ function sendTextMessage(sender, text) {
 }
 
 function sendGenericMessage(recipientId) {
-  messageData = {
+  var messageData = {
     recipient: {
       id: recipientId
     },
@@ -104,22 +127,8 @@ function sendGenericMessage(recipientId) {
       }
     }
   };  
-
-  request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:app.get('page_access_token')},
-        method: 'POST',
-        json: {
-            recipient: {id:recipientId},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending message: ', error);
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error);
-        }
-    });
+  
+  callSendAPI(messageData);
 }
 
 
