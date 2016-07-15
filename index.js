@@ -94,11 +94,9 @@ function getHTTPinfo() {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          var htmlbody = body.replace(/^[\S\s]*<body[^>]*?>/i, "")
-          .replace(/<\/body[\S\s]*$/i, "");
-          var el = document.createElement( 'html' );
-          el.innerHTML = htmlbody;
-          var carListHtml = el.getElementsByClassName("cars-list");
+          var htmlbody = body.replace(/^[\S\s]*<li[^>]*?>/i, "")
+          .replace(/<\/li[\S\s]*$/i, "");
+         var carListHtml = htmlbody;
           console.log(carListHtml);
         });    
 }
