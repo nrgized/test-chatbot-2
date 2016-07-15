@@ -106,7 +106,7 @@ function getHTTPinfo() {
         }, function(error, response, body) {
           //var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
-          //var lists = body.substring(body.indexOf("<li>"));
+          var lists = body.substring(body.indexOf("<li>"));
           //lists = lists.substring(0, lists.indexOf("</li>") + 5);
           //var listsO = lists.substring(0, 300);
           //var lists = "<li></li>";
@@ -117,15 +117,14 @@ function getHTTPinfo() {
           //var LIcount = LIitems.length;
           //console.log(lists);
           var html = body;
-          var brands = "asdfasd";
-          var promise = htmlToJson.parse('<div>content</div>', {
+          var promise = htmlToJson.parse(html, {
             'text': function ($doc) {
-              return $doc.find('div').text();
+              return $doc.find('.brand').text();
             }
           }, function (err, result) {
             console.log(result);
             console.log(result.text);
-            sendTextMessage(sender, result.text);
+            sendTextMessage(sender, lists + result.text);
           });
           //sendTextMessage(sender, brands);
         });    
