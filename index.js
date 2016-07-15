@@ -128,7 +128,7 @@ function getHTTPinfo() {
           $('li').each(function(i, elem) {
             cars[i] = $(this).text();
           });
-          console.log(cars[0]);
+          console.log(cars[1]);
 
             sendTextMessage(sender, text);
 
