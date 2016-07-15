@@ -118,9 +118,14 @@ function getHTTPinfo() {
           //console.log(lists);
           var html = body;
           var brands;
-          var promise = htmlToJson.parse('<div>content</div>');
-          console.log(promise);
-          sendTextMessage(sender, LIcount + brands);
+          var promise = htmlToJson.parse('<div>content</div>', {
+            'text': function ($doc) {
+              return $doc.find('div').text();
+            }
+          }, function (err, result) {
+            console.log(result);
+          });
+          sendTextMessage(sender, brands);
         });    
 }
 
