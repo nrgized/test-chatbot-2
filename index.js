@@ -116,14 +116,9 @@ function getHTTPinfo() {
           //var LIcount = LIitems.length;
           //console.log(lists);
           var html = body;
-          var brands = "asdsd";
-          var promise = htmlToJson.parse('<div>content</div>', {
-            'text': function ($doc) {
-              return $doc.find('div').text();
-            }
-          }, function (err, result) {
-            console.log(result);
-          });          
+          var brands;
+          var promise = htmlToJson.parse('<div>content</div>');
+          console.log(promise);
           sendTextMessage(sender, LIcount + brands);
         });    
 }
