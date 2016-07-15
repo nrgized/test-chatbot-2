@@ -105,9 +105,8 @@ function getHTTPinfo() {
         }, function(error, response, body) {
           //var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
-          //var lists = body.substring(body.indexOf("<li>"));
-          var lists = '5';
-          //lists = lists.substring(0, lists.indexOf("</li>") + 5);
+          var lists = body.substring(body.indexOf("<li>"));
+          lists = lists.substring(0, lists.indexOf("</li>") + 5);
           //var listsO = lists.substring(0, 300);
           //var lists = "<li></li>";
           //var LIcount = (body.match(/<li>/g)||[]).length;          
@@ -117,12 +116,12 @@ function getHTTPinfo() {
           //var LIcount = LIitems.length;
           //console.log(lists);
           var cheerio = require('cheerio'),
-          $ = cheerio.load(body);
+          $ = cheerio.load(lists);
           var text = $('.brand').text();          
           console.log('here');
-          console.log(text);
+          console.log(lists);
 
-            sendTextMessage(sender, lists);
+            sendTextMessage(sender, "lists");
 
         
 
