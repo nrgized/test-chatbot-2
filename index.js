@@ -105,7 +105,6 @@ function getHTTPinfo() {
           console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
-          callSendAPI(body);
         });    
 }
 
