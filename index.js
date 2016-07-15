@@ -31,7 +31,11 @@ app.post('/webhook/', function (req, res) {
             text = event.message.text;
             text = text.toLowerCase();
             if (text === 'generic') {
-                sendGenericMessage(sender)
+                sendGenericMessage(sender);
+            continue
+            }
+            if (text === 'bee') {
+                getHTTPinfo();
             continue
             }
             
@@ -101,6 +105,7 @@ function getHTTPinfo() {
           console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
+          callSendAPI(body);
         });    
 }
 
@@ -147,7 +152,6 @@ function sendGenericMessage(recipientId) {
       }
     }
   };  
-  getHTTPinfo();
   callSendAPI(messageData);
 }
 
