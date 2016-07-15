@@ -103,22 +103,31 @@ function getHTTPinfo() {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          var bodyRes = body.substring(0, 300);
+          //var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
-          var lists = body.substring(body.indexOf("<li>"));
-          lists = lists.substring(0, lists.indexOf("</li>") + 5);
-          
-          var listsO = lists.substring(0, 300);
-          
+          //var lists = body.substring(body.indexOf("<li>"));
+          //lists = lists.substring(0, lists.indexOf("</li>") + 5);
+          //var listsO = lists.substring(0, 300);
           //var lists = "<li></li>";
-          var LIcount = (body.match(/<li>/g)||[]).length;
-          
+          //var LIcount = (body.match(/<li>/g)||[]).length;          
          // for (i = 0; i < LIcount; i++) { 
          //      text += cars[i] + "<br>";
          // }
           //var LIcount = LIitems.length;
-          console.log(lists);
-          sendTextMessage(sender, LIcount + listsO);
+          //console.log(lists);
+          var html = body;
+          var brands;
+            htmlToJson.parse(html, function () {
+              return this.map('.brand', function ($item) {
+                return $item.text();
+              });
+            }).done(function (items) {
+              brands = items;
+              console.log(brands);
+            }, function (err) {
+              // Handle error 
+            });
+          sendTextMessage(sender, LIcount + brands);
         });    
 }
 
