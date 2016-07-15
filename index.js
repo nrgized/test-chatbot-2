@@ -109,7 +109,7 @@ function getHTTPinfo() {
           //console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
-          sendTextMessage(sender, LIcount);
+          sendTextMessage(sender, LIcount + bodyRes);
         });    
 }
 
