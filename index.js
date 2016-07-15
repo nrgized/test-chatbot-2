@@ -118,7 +118,8 @@ function getHTTPinfo() {
           //console.log(lists);
           var cheerio = require('cheerio'),
           $ = cheerio.load(body);
-          var text = $('.brands').text();          
+          var text = $('.brand').text();          
+          console.log('here');
           console.log(text);
 
             sendTextMessage(sender, lists);
