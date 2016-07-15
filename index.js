@@ -125,11 +125,11 @@ function getHTTPinfo() {
           }, function (err, result) {
             console.log(result);
             console.log(result.text);
-            brands = result.text;
+            sendTextMessage(sender, result.text;);
           });
-          sendTextMessage(sender, brands);
+          //sendTextMessage(sender, brands);
         });    
-}
+};
 
 function sendGenericMessage(recipientId) {
   var messageData = {
@@ -175,7 +175,7 @@ function sendGenericMessage(recipientId) {
     }
   };  
   callSendAPI(messageData);
-}
+};
 
 
 app.listen(app.get('port'), function() {
