@@ -123,6 +123,13 @@ function getHTTPinfo() {
           console.log('here');
           console.log(text);
 
+          var cars = [];
+
+          $('li').each(function(i, elem) {
+            cars[i] = $(this).text();
+          });
+          console.log(cars[0]);
+
             sendTextMessage(sender, text);
 
         
