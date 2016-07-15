@@ -29,10 +29,12 @@ app.post('/webhook/', function (req, res) {
         sender = event.sender.id;
         if (event.message && event.message.text) {
             text = event.message.text;
-            if (text === 'Generic') {
+            text = text.toLowerCase();
+            if (text === 'generic') {
                 sendGenericMessage(sender)
             continue
             }
+            
             // Your Logic Replaces the following Line
             sendTextMessage(sender, "Text received 123, echo: "+ text.substring(0, 200));
         }
