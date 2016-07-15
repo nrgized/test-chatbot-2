@@ -116,16 +116,20 @@ function getHTTPinfo() {
          // }
           //var LIcount = LIitems.length;
           //console.log(lists);
-          var html = body;
+          /*var html = body;
           var promise = htmlToJson.parse(html, {
             'text': function ($doc) {
-              return $doc.find('.brand').text();
+              return $doc.find('.cars-list').text();
             }
           }, function (err, result) {
             console.log(result);
             console.log(result.text);
             sendTextMessage(sender, lists + result.text);
           });
+        */
+        var result = htmlToJson.parse(body);
+        console.log(result);
+
           //sendTextMessage(sender, brands);
         });    
 };
