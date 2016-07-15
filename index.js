@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
-var htmlToJson = require("html-to-json");
 
 app.use(bodyParser.json());
 
@@ -116,17 +115,13 @@ function getHTTPinfo() {
          // }
           //var LIcount = LIitems.length;
           //console.log(lists);
-          sendTextMessage(sender, LIcount + listsO);
-          var html = body;
-          var promise = htmlToJson.parse(html, {
-            'text': function ($doc) {
-              return $doc.find('.car-wrap').text();
-            }
-          }, function (err, result) {
-          //  console.log(result);
-            //console.log(result.text);
-            sendTextMessage(sender, lists);
-          });
+          var cheerio = require('cheerio'),
+          $ = cheerio.load('<ul id="fruits">Apple</ul>');
+          var text = $('.fruits').text();          
+
+
+            sendTextMessage(sender, text);
+
         
 
           //sendTextMessage(sender, brands);
