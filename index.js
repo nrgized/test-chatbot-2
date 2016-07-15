@@ -94,10 +94,11 @@ function getHTTPinfo() {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          var htmlbody = body.replace(/^[\S\s]*<li[^>]*?>/i, "")
-          .replace(/<\/li[\S\s]*$/i, "");
-         var carListHtml = htmlbody;
-          console.log(carListHtml);
+          var LIitems = body.match(new RegExp("<li>", "g"));
+          var countLIitems = LIitems.length;
+          
+         
+          console.log(countLIitems);
         });    
 }
 
