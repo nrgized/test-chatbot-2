@@ -123,7 +123,7 @@ function getHTTPinfo() {
           console.log('here');
           console.log(text);
 
-            sendTextMessage(sender, "lists");
+            sendTextMessage(sender, text);
 
         
 
