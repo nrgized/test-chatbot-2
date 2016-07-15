@@ -130,7 +130,7 @@ function getHTTPinfo() {
           });
           console.log(cars[1]); 
 
-            sendTextMessage(sender, cars[1]);
+            sendTextMessage(sender, cars.join(', '));
 
         
 
