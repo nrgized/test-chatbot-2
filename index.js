@@ -106,8 +106,10 @@ function getHTTPinfo() {
           var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
           var lists = body.substring(body.indexOf("<li>"));
-          lists = lists.substring(0, 300);
-          //lists = lists.substring(0, lists.indexOf('</li>') + 5);
+          lists = lists.substring(0, lists.indexOf("</li>") + 5);
+          
+          var listsO = lists.substring(0, 300);
+          
           //var lists = "<li></li>";
           var LIcount = (body.match(/<li>/g)||[]).length;
           
@@ -115,8 +117,8 @@ function getHTTPinfo() {
          //      text += cars[i] + "<br>";
          // }
           //var LIcount = LIitems.length;
-          //console.log(body);
-          sendTextMessage(sender, LIcount + lists);
+          console.log(lists);
+          sendTextMessage(sender, LIcount + listsO);
         });    
 }
 
