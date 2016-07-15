@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
+var htmlToJson = require("html-to-json");
 
 app.use(bodyParser.json());
 
@@ -103,24 +104,37 @@ function getHTTPinfo() {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          var bodyRes = body.substring(0, 300);
+          //var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
           var lists = body.substring(body.indexOf("<li>"));
-          lists = lists.substring(0, lists.indexOf("</li>") + 5);
-          
-          var listsO = lists.substring(0, 300);
-          
+          //lists = lists.substring(0, lists.indexOf("</li>") + 5);
+          //var listsO = lists.substring(0, 300);
           //var lists = "<li></li>";
-          var LIcount = (body.match(/<li>/g)||[]).length;
-          
+          //var LIcount = (body.match(/<li>/g)||[]).length;          
          // for (i = 0; i < LIcount; i++) { 
          //      text += cars[i] + "<br>";
          // }
           //var LIcount = LIitems.length;
           //console.log(lists);
+<<<<<<< HEAD
           sendTextMessage(sender, LIcount + listsO);
+=======
+          var html = body;
+          var promise = htmlToJson.parse(html, {
+            'text': function ($doc) {
+              return $doc.find('.car-wrap').text();
+            }
+          }, function (err, result) {
+            console.log(result);
+            //console.log(result.text);
+            sendTextMessage(sender, lists);
+          });
+        
+
+          //sendTextMessage(sender, brands);
+>>>>>>> origin/master
         });    
-}
+};
 
 function sendGenericMessage(recipientId) {
   var messageData = {
@@ -166,7 +180,7 @@ function sendGenericMessage(recipientId) {
     }
   };  
   callSendAPI(messageData);
-}
+};
 
 
 app.listen(app.get('port'), function() {
