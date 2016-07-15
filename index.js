@@ -116,23 +116,20 @@ function getHTTPinfo() {
          // }
           //var LIcount = LIitems.length;
           //console.log(lists);
-<<<<<<< HEAD
           sendTextMessage(sender, LIcount + listsO);
-=======
           var html = body;
           var promise = htmlToJson.parse(html, {
             'text': function ($doc) {
               return $doc.find('.car-wrap').text();
             }
           }, function (err, result) {
-            console.log(result);
+          //  console.log(result);
             //console.log(result.text);
             sendTextMessage(sender, lists);
           });
         
 
           //sendTextMessage(sender, brands);
->>>>>>> origin/master
         });    
 };
 
