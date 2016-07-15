@@ -96,9 +96,10 @@ function getHTTPinfo() {
         }, function(error, response, body) {
           var LIitems = body.match(new RegExp("<li>", "g"));
           var countLIitems = LIitems.length;
-          
-         
+          var asdf = "1234";
           console.log(countLIitems);
+          console.log("console output")
+          console.log(asdf);
         });    
 }
 
