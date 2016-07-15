@@ -101,13 +101,11 @@ function getHTTPinfo() {
           maxRedirects: 10
         }, function(error, response, body) {
           var bodyRes = body;
-        //  var LIitems = bodyRes.match(new RegExp("<li>", "g"));
-        //  var countLIitems = LIitems.length;
           var asdf = "1234";
           //console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
-          sendTextMessage(sender, asdf);
+          sendTextMessage(sender, bodyRes.substring(0, 200));
         });    
 }
 
