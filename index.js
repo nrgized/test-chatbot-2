@@ -64,6 +64,8 @@ function callSendAPI(messageData) {
       console.error("Unable to send message.");
       console.error(response);
       console.error(error);
+      var messageData = {}
+      callSendAPI(messageData);
     }
   });  
 }
@@ -102,9 +104,10 @@ function getHTTPinfo() {
         //  var LIitems = bodyRes.match(new RegExp("<li>", "g"));
         //  var countLIitems = LIitems.length;
           var asdf = "1234";
-          console.log(bodyRes);
+          //console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
+          sendTextMessage(sender, asdf);
         });    
 }
 
