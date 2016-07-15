@@ -103,7 +103,7 @@ function getHTTPinfo() {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          //var bodyRes = body.substring(0, 300);
+          var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
           //var lists = body.substring(body.indexOf("<li>") );
           //lists = lists.substring(0, lists.indexOf('</li>') + 5);
@@ -118,7 +118,7 @@ function getHTTPinfo() {
           //console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
-          sendTextMessage(sender, LIcount + lists);
+          sendTextMessage(sender, LIcount + bodyRes);
         });    
 }
 
