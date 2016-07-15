@@ -121,7 +121,6 @@ function getHTTPinfo() {
           $ = cheerio.load(body);
           var text = $('.brand').text();          
           console.log('here');
-          console.log(lists);
 
             sendTextMessage(sender, "lists");
 
