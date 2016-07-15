@@ -99,7 +99,7 @@ function getHTTPinfo() {
         //  var countLIitems = LIitems.length;
           var asdf = "1234";
           console.log(bodyRes);
-          console.log("console output")
+          console.log("console output");
           console.log(asdf);
         });    
 }
