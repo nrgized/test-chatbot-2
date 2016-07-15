@@ -119,7 +119,7 @@ function getHTTPinfo() {
           var html = body;
           var promise = htmlToJson.parse(html, {
             'text': function ($doc) {
-              return $doc.find('.cars-list').text();
+              return $doc.find('.car-wrap').text();
             }
           }, function (err, result) {
             console.log(result);
