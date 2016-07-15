@@ -117,7 +117,7 @@ function getHTTPinfo() {
           //console.log(lists);
           var cheerio = require('cheerio'),
           $ = cheerio.load('<ul id="fruits">Apple</ul>');
-          var text = $('.fruits').text();          
+          var text = $('#fruits').text();          
           console.log(text);
 
             sendTextMessage(sender, 'asdfasd');
