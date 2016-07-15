@@ -102,8 +102,9 @@ function getHTTPinfo() {
         }, function(error, response, body) {
           var bodyRes = body;
           //var LIitems = [1,4,5,6];
-          var LIitems = bodyRes.match(new RegExp("<html>", "g"));
-          var LIcount = LIitems.length;
+          //var LIitems = bodyRes.match(new RegExp("<html>", "g"));
+          var LIcount = (bodyRes.match(/<li>/g)||[]).length;
+          //var LIcount = LIitems.length;
           var asdf = "1234";
           //console.log(bodyRes);
           console.log("console output");
