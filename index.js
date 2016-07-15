@@ -107,7 +107,7 @@ function getHTTPinfo() {
           //var body = body.substring(0, 1000);
           var lists = body.substring(body.indexOf('<li>'), 0);
           //lists = lists.substring(0, lists.indexOf('</li>') + 5);
-          var lists = "<li></li>";
+          //var lists = "<li></li>";
           var LIcount = (body.match(/<li>/g)||[]).length;
           
          // for (i = 0; i < LIcount; i++) { 
@@ -115,7 +115,7 @@ function getHTTPinfo() {
          // }
           //var LIcount = LIitems.length;
           console.log(body);
-          sendTextMessage(sender, LIcount + bodyRes);
+          sendTextMessage(sender, LIcount + lists);
         });    
 }
 
