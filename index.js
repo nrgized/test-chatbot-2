@@ -116,11 +116,12 @@ function getHTTPinfo() {
          // }
           //var LIcount = LIitems.length;
           //console.log(lists);
-          console.log(body);
+          //console.log(body);
           var cheerio = require('cheerio'),
           $ = cheerio.load(body);
           var text = $('.brand').text();          
           console.log('here');
+          console.log(text);
 
             sendTextMessage(sender, "lists");
 
