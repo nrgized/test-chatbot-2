@@ -126,7 +126,7 @@ function getHTTPinfo() {
           var cars = [];
 
           $('li').each(function(i, elem) {
-            cars[i] = $(this).text();
+            cars[i] = $(this).find('.brand').text();
           });
           console.log(cars[1]);
 
