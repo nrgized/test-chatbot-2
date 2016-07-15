@@ -124,6 +124,7 @@ function getHTTPinfo() {
             }
           }, function (err, result) {
             console.log(result);
+            brands = result.text;
           });
           sendTextMessage(sender, brands);
         });    
