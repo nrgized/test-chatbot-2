@@ -105,7 +105,7 @@ function getHTTPinfo() {
         }, function(error, response, body) {
           var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
-          var lists = body.substring(body.indexOf('<li>'));
+          var lists = body.substring(body.indexOf("<li>"));
           lists = lists.substring(0, 300);
           //lists = lists.substring(0, lists.indexOf('</li>') + 5);
           //var lists = "<li></li>";
