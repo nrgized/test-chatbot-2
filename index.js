@@ -102,11 +102,12 @@ function getHTTPinfo() {
         }, function(error, response, body) {
           var bodyRes = body;
           var LIitems = bodyRes.match(new RegExp("<li>", "g"));
+          var LIcount = LIitems.length;
           var asdf = "1234";
           //console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
-          sendTextMessage(sender, LIitems.substring(0, 200));
+          sendTextMessage(sender, LIcount);
         });    
 }
 
