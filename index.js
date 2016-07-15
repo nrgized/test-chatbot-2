@@ -120,7 +120,7 @@ function getHTTPinfo() {
           var text = $('#fruits').text();          
           console.log(text);
 
-            sendTextMessage(sender, 'asdfasd');
+            sendTextMessage(sender, text);
 
         
 
