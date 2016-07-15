@@ -115,7 +115,7 @@ function getHTTPinfo() {
          //      text += cars[i] + "<br>";
          // }
           //var LIcount = LIitems.length;
-          console.log(body);
+          //console.log(body);
           sendTextMessage(sender, LIcount + bodyRes);
         });    
 }
