@@ -103,16 +103,21 @@ function getHTTPinfo() {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          var bodyRes = body.substring(0, 300);
-          //var LIitems = [1,4,5,6];
-          //var LIitems = bodyRes.match(new RegExp("<html>", "g"));
+          //var bodyRes = body.substring(0, 300);
+          var body = body.substring(0, 1000);
+          var lists = body.substring(body.indexOf("<li>") );
+          lists = lists.substring(0, lists.indexOf('</li>') + 5);
           var LIcount = (body.match(/<li>/g)||[]).length;
+          
+         // for (i = 0; i < LIcount; i++) { 
+         //      text += cars[i] + "<br>";
+         // }
           //var LIcount = LIitems.length;
           var asdf = "1234";
           //console.log(bodyRes);
           console.log("console output");
           console.log(asdf);
-          sendTextMessage(sender, LIcount + bodyRes);
+          sendTextMessage(sender, LIcount + lists);
         });    
 }
 
