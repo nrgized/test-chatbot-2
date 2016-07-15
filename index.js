@@ -124,7 +124,8 @@ function getHTTPinfo() {
             }
           }, function (err, result) {
             console.log(result);
-            brands = result.text;
+            brands1 = result.text;
+            brands = "afdsadsfa"
           });
           sendTextMessage(sender, brands);
         });    
