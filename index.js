@@ -101,7 +101,7 @@ function getHTTPinfo() {
           maxRedirects: 10
         }, function(error, response, body) {
           var bodyRes = body;
-          var LIitems = bodyRes.match(new RegExp("<li>", "g"));
+          var LIitems = [1,4,5,6];
           var LIcount = LIitems.length;
           var asdf = "1234";
           //console.log(bodyRes);
