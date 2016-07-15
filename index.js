@@ -105,7 +105,7 @@ function getHTTPinfo() {
         }, function(error, response, body) {
           var bodyRes = body.substring(0, 300);
           //var body = body.substring(0, 1000);
-          //var lists = body.substring(body.indexOf("<li>") );
+          var lists = body.substring(body.indexOf('<li>'), 0);
           //lists = lists.substring(0, lists.indexOf('</li>') + 5);
           var lists = "<li></li>";
           var LIcount = (body.match(/<li>/g)||[]).length;
@@ -114,10 +114,7 @@ function getHTTPinfo() {
          //      text += cars[i] + "<br>";
          // }
           //var LIcount = LIitems.length;
-          var asdf = "1234";
-          //console.log(bodyRes);
-          console.log("console output");
-          console.log(asdf);
+          console.log(body);
           sendTextMessage(sender, LIcount + bodyRes);
         });    
 }
