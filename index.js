@@ -86,6 +86,18 @@ function sendTextMessage(sender, text) {
     });
 }
 
+function getHTTPinfo() {
+        request({
+          uri: "http://www.sitepoint.com",
+          method: "GET",
+          timeout: 10000,
+          followRedirect: true,
+          maxRedirects: 10
+        }, function(error, response, body) {
+          console.log(body);
+        });    
+}
+
 function sendGenericMessage(recipientId) {
   var messageData = {
     recipient: {
@@ -129,7 +141,7 @@ function sendGenericMessage(recipientId) {
       }
     }
   };  
-  
+  getHTTPinfo();
   callSendAPI(messageData);
 }
 
