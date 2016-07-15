@@ -117,15 +117,14 @@ function getHTTPinfo() {
           //var LIcount = LIitems.length;
           //console.log(lists);
           var html = body;
-          var brands;
+          var brands = "asdfasd";
           var promise = htmlToJson.parse('<div>content</div>', {
             'text': function ($doc) {
               return $doc.find('div').text();
             }
           }, function (err, result) {
-            console.log(result);
+            //console.log(result);
             brands1 = result.text;
-            brands = "afdsadsfa"
           });
           sendTextMessage(sender, brands);
         });    
