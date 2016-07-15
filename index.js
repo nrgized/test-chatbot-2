@@ -123,7 +123,7 @@ function getHTTPinfo() {
               return $doc.find('div').text();
             }
           }, function (err, result) {
-            //console.log(result);
+            console.log(result);
             brands1 = result.text;
           });
           sendTextMessage(sender, brands);
