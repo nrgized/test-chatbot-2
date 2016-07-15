@@ -125,7 +125,7 @@ function getHTTPinfo() {
           }, function (err, result) {
             console.log(result);
             console.log(result.text);
-            sendTextMessage(sender, result.text;);
+            sendTextMessage(sender, result.text);
           });
           //sendTextMessage(sender, brands);
         });    
