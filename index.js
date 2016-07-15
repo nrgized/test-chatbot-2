@@ -94,7 +94,10 @@ function getHTTPinfo() {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          console.log(body);
+          var el = document.createElement( 'html' );
+          el.innerHTML = body;
+          var carListHtml = el.getElementsByClassName("cars-list");
+          console.log(carListHtml);
         });    
 }
 
