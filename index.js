@@ -95,7 +95,7 @@ function sendTextMessage(sender, text) {
 function getHTTPinfo() {
         request({
           uri: "https://login.citybee.lt/lt/map/zone/14",
-          method: "GET",
+          method: "POST",
           timeout: 10000,
           followRedirect: true,
           maxRedirects: 10
