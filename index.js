@@ -124,7 +124,8 @@ function getHTTPinfo(value) {
           $('li').each(function(i, elem) {
             car.brand = $(this).find('.brand').text();
             car.id = $(this).find( "input[name*='car-id']" ).attr('value');
-            car.imageUrl = $(this).find('.car-icon-div').attr('style');
+            var imageUrlFull = $(this).find('.car-icon-div').attr('style');
+            car.imageUrl = imageUrlFull.substring(indexOf("'"), 200);
             car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + car.id;
             car.plateNr = "XXX000";
             cars.push(car); 
