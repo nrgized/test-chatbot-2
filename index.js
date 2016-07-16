@@ -37,6 +37,7 @@ app.post('/webhook/', function (req, res) {
             if (text === 'bee') {
                 getHTTPinfo();
             continue
+            }
             if (text.charAt(0) = '@') {
                 var value = text.substring(text.indexOf("@"));
                 getHTTPinfo(value);
