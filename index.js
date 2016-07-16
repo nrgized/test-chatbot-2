@@ -122,11 +122,12 @@ function getHTTPinfo(value) {
           var car;
 
           $('li').each(function(i, elem) {
-            cars[i].brand = $(this).find('.brand').text();
-            cars[i].id = $(this).find( "input[name*='car-id']" ).attr('value');
-            cars[i].image = $(this).find('.car-icon-div').attr('style');
-            cars[i].bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + cars[i].id;
-            cars[i].plateNr = "XXX000";
+            car.brand = $(this).find('.brand').text();
+            car.id = $(this).find( "input[name*='car-id']" ).attr('value');
+            car.image = $(this).find('.car-icon-div').attr('style');
+            car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + cars[i].id;
+            car.plateNr = "XXX000";
+            cars.push(car); 
           });
           console.log(cars[0]); 
 
