@@ -128,7 +128,7 @@ function getHTTPinfo(value) {
             var substringStart = imageUrlFull.indexOf("(");
             var substringEnd = imageUrlFull.indexOf(")");
             console.log(imageUrlFull);
-            console.log(substringEnd);
+            console.log(substringStart);
             //car.imageUrl = car.imageUrlFull.substring(indexOf("("), indexOf(")"));
             car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + car.id;
             car.plateNr = "XXX000";
