@@ -131,7 +131,7 @@ function getHTTPinfo(value) {
           });
           
 
-            sendTextMessage(sender, cars[0].imageUrl) + cars[0].bookUrl;
+            sendTextMessage(sender, cars[0].imageUrl);
 
         
 
