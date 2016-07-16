@@ -105,7 +105,7 @@ function getHTTPinfo(value) {
           headers: {
                 'Cookie': 'PHPSESSID=7jr278b6p6t2dssg9orisikd80; device_view=full; BCSI-CS-97976de0be87e764=2; BIGipServerglosC-proxyVIP-bc-RBB-web_gdcsfscs05-55_8050_pool=3242406179.29215.0000; _ga=GA1.2.500491733.1468570414; BCSI-CS-b933f65a4f518259=2; BIGipServerSlough-proxyVIP-bc-RBB-web-SLGSFSCS105-155_8050_pool=3778638102.29215.0000; __utmt=1; __utma=269912044.500491733.1468570414.1468570425.1468587689.2; __utmb=269912044.4.10.1468587689; __utmc=269912044; __utmz=269912044.1468587689.2.2.utmcsr=citybee.lt|utmccn=(referral)|utmcmd=referral|utmcct=/lt/'
           },
-          uri: "https://login.citybee.lt/lt/map/zone/14",
+          uri: "https://login.citybee.lt/lt/map/zone/" + value,
           method: "POST",
           timeout: 10000,
           followRedirect: true,
