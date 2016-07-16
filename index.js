@@ -145,16 +145,7 @@ function getHTTPinfo(value) {
 };
 
 function sendGenericMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
+  var elements = [{
             title: "rift",
             subtitle: "Next-generation virtual reality",
             item_url: "https://www.oculus.com/en-us/rift/",               
@@ -182,7 +173,17 @@ function sendGenericMessage(recipientId) {
               title: "Call Postback",
               payload: "Payload for second bubble",
             }]
-          }]
+          }];
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: elements
         }
       }
     }
