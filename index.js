@@ -38,7 +38,7 @@ app.post('/webhook/', function (req, res) {
                 getHTTPinfo();
             continue
             }
-            if (text.charAt(0) = '@') {
+            if (text.charAt(0) === '@') {
                 var value = text.substring(text.indexOf("@"));
                 console.log("@@@@@");
                 getHTTPinfo();
