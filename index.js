@@ -129,14 +129,14 @@ function getHTTPinfo(value) {
             var substringEnd = imageUrlFull.indexOf(")");
             console.log(imageUrlFull);
             console.log(substringStart);
-            //car.imageUrl = car.imageUrlFull.substring(indexOf("("), indexOf(")"));
+            car.imageUrl = imageUrlFull.substring(substringStart, substringEnd);
             car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + car.id;
             car.plateNr = "XXX000";
             cars.push(car); 
           });
           
 
-            sendTextMessage(sender, cars[0].plateNr);
+            sendTextMessage(sender, cars[0].imageUrl);
 
         
 
