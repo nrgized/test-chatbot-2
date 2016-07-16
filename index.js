@@ -137,8 +137,8 @@ function getHTTPinfo(sender, value) {
             cars.push(car); 
             element = {
               title: car.brand,
-              subtitle: "Next-generation virtual reality",
-              item_url: "https://www.oculus.com/en-us/rift/",               
+              subtitle: car.plateNr,
+              item_url: car.bookUrl,               
               image_url: car.imageUrl,
               buttons: [{
                 type: "web_url",
