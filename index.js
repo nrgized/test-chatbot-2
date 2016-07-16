@@ -125,8 +125,8 @@ function getHTTPinfo(value) {
             car.brand = $(this).find('.brand').text();
             car.id = $(this).find( "input[name*='car-id']" ).attr('value');
             var imageUrlFull = $(this).find('.car-icon-div').attr('style');
-            var substringStart = imageUrlFull.indexOf("(");
-            var substringEnd = imageUrlFull.indexOf(")");
+            var substringStart = imageUrlFull.indexOf("(") + 2;
+            var substringEnd = imageUrlFull.indexOf(")") - 1;
             console.log(imageUrlFull);
             console.log(substringStart);
             car.imageUrl = imageUrlFull.substring(substringStart, substringEnd);
