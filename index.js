@@ -124,15 +124,19 @@ function getHTTPinfo(value) {
           $('li').each(function(i, elem) {
             car.brand = $(this).find('.brand').text();
             car.id = $(this).find( "input[name*='car-id']" ).attr('value');
-            car.imageUrlFull = $(this).find('.car-icon-div').attr('style');
-           // car.imageUrl = car.imageUrlFull.substring(indexOf("("), indexOf(")"));
+            var imageUrlFull = $(this).find('.car-icon-div').attr('style');
+            var substringStart = imageUrlFull.indexOf("(");
+            var substringEnd = imageUrlFull.indexOf(")");
+            console.log(imageUrlFull);
+            console.log(substringEnd);
+            //car.imageUrl = car.imageUrlFull.substring(indexOf("("), indexOf(")"));
             car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + car.id;
             car.plateNr = "XXX000";
             cars.push(car); 
           });
           
 
-            sendTextMessage(sender, cars[0].imageUrlFull);
+            sendTextMessage(sender, cars[0].plateNr);
 
         
 
