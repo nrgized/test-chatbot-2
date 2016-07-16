@@ -112,20 +112,6 @@ function getHTTPinfo(value) {
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
-          //var bodyRes = body.substring(0, 300);
-          //var body = body.substring(0, 1000);
-          //var body = body;
-          //var lists = body.substring(body.indexOf("<li>"));
-          //lists = lists.substring(0, lists.indexOf("</li>") + 5);
-          //var listsO = lists.substring(0, 300);
-          //var lists = "<li></li>";
-          //var LIcount = (body.match(/<li>/g)||[]).length;          
-         // for (i = 0; i < LIcount; i++) { 
-         //      text += cars[i] + "<br>";
-         // }
-          //var LIcount = LIitems.length;
-          //console.log(lists);
-          //console.log(body);
           var cheerio = require('cheerio'),
           $ = cheerio.load(body);
           var text = $('.brand').text();          
@@ -133,9 +119,14 @@ function getHTTPinfo(value) {
           console.log(url);
 
           var cars = [];
+          var car;
 
           $('li').each(function(i, elem) {
-            cars[i] = $(this).find('.brand').text();
+            cars[i].brand = $(this).find('.brand').text();
+            cars[i].id = $(this).find( "input[name*='car-id']" ).attr('value');
+            cars[i].image = $(this).find('.car-icon-div').attr('style');
+            cars[i].bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + cars[i].id;
+            cars[i].plateNr = "XXX000";
           });
           console.log(cars[0]); 
 
