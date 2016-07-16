@@ -125,14 +125,14 @@ function getHTTPinfo(value) {
             car.brand = $(this).find('.brand').text();
             car.id = $(this).find( "input[name*='car-id']" ).attr('value');
             car.imageUrlFull = $(this).find('.car-icon-div').attr('style');
-            car.imageUrl = car.imageUrlFull.substring(indexOf("("), indexOf(")"));
+           // car.imageUrl = car.imageUrlFull.substring(indexOf("("), indexOf(")"));
             car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + car.id;
             car.plateNr = "XXX000";
             cars.push(car); 
           });
           
 
-            sendTextMessage(sender, cars[0].imageUrl);
+            sendTextMessage(sender, cars[0].imageUrlFull);
 
         
 
