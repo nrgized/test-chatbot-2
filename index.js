@@ -120,6 +120,8 @@ function getHTTPinfo(value) {
 
           var cars = [];
           var car = {};
+          var element = {};
+          var elements = [];
 
           $('li').each(function(i, elem) {
             car.brand = $(this).find('.brand').text();
@@ -133,10 +135,39 @@ function getHTTPinfo(value) {
             car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + car.id;
             car.plateNr = "XXX000";
             cars.push(car); 
+            element = {
+              title: car.brand,
+              subtitle: "Next-generation virtual reality",
+              item_url: "https://www.oculus.com/en-us/rift/",               
+              image_url: car.imageUrl,
+              buttons: [{
+                type: "web_url",
+                url: car.bookUrl,
+                title: "Rezervuoti"
+              }, {
+                type: "postback",
+                title: "Call Postback",
+                payload: "Payload for first bubble",
+              }],
+            };
+            elements.push(element);
           });
           
-
-            sendTextMessage(sender, cars[0].imageUrl);
+            var messageData = {
+              recipient: {
+                id: recipientId
+              },
+              message: {
+                attachment: {
+                  type: "template",
+                  payload: {
+                    template_type: "generic",
+                    elements: elements
+                  }
+                }
+              }
+            };  
+//            sendTextMessage(sender, cars[0].imageUrl);
 
         
 
