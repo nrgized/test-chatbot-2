@@ -43,7 +43,7 @@ app.post('/webhook/', function (req, res) {
                 var value = text.substring(1, 200);
                 console.log("@@@@@");
                 sendTextMessage(sender, "stotele " + value);
-                getHTTPinfo(value);
+                getHTTPinfo(sender, value);
             continue
             }
            
@@ -100,7 +100,7 @@ function sendTextMessage(sender, text) {
     });
 }
 
-function getHTTPinfo(value) {
+function getHTTPinfo(sender, value) {
         var url = "https://login.citybee.lt/lt/map/zone/" + value;
         request({
           headers: {
@@ -155,7 +155,7 @@ function getHTTPinfo(value) {
           
             var messageData = {
               recipient: {
-                id: recipientId
+                id: sender
               },
               message: {
                 attachment: {
@@ -169,7 +169,7 @@ function getHTTPinfo(value) {
             };  
 //            sendTextMessage(sender, cars[0].imageUrl);
 
-        
+        callSendAPI(messageData);
 
           //sendTextMessage(sender, brands);
         });    
