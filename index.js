@@ -129,9 +129,9 @@ function getHTTPinfo(value) {
             //car.plateNr = "XXX000";
             cars.push(car); 
           });
-          console.log(cars[0]); 
+          console.log(cars[0].brand); 
 
-            sendTextMessage(sender, cars.join(', '));
+            sendTextMessage(sender, cars[0].brand);
 
         
 
