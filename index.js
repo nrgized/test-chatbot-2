@@ -40,12 +40,12 @@ app.post('/webhook/', function (req, res) {
             }
             if (text.charAt(0) === '@') {
                // var value = text.substring(text.indexOf("@"));
-                console.log("@@@@@" + value);
+                console.log("@@@@@");
                 //getHTTPinfo();
-                sendTextMessage(sender, "stotele "+ text.substring(0, 200));
+                sendTextMessage(sender, "stotele "+ text.substring(1, 200));
             continue
             }
-           ≈
+           
             // Your Logic Replaces the following Line
             sendTextMessage(sender, "Text received 123, echo: "+ text.substring(0, 200));
         }
