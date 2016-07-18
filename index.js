@@ -168,8 +168,12 @@ function getHTTPinfo(sender, value) {
               }
             };  
 //            sendTextMessage(sender, cars[0].imageUrl);
-
-        callSendAPI(messageData);
+        if(cars.length > 0){   
+          callSendAPI(messageData);
+        }else{
+          sendTextMessage(sender, "atsiprašome, " + value + " stotelėje šiuo metu nėra laisvų automobilių");
+        }
+        
 
           //sendTextMessage(sender, brands);
         });    
