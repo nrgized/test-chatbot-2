@@ -132,7 +132,7 @@ function getHTTPinfo(sender, value) {
             console.log(imageUrlFull);
             console.log(substringStart);
             car.imageUrl = imageUrlFull.substring(substringStart, substringEnd);
-            car.bookUrl = 'https://login.citybee.lt/lt/reservation/create/' + car.id;
+            car.bookUrl = 'https://login.citybee.lt/mobile/lt/reservation/create/' + car.id;
             car.plateNr = "XXX000";
             cars.push(car); 
             element = {
