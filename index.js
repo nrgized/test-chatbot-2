@@ -75,19 +75,24 @@ function getStopsData() {
       // parse html to json
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
+      var zones = [];
+      var zone = {};
       $( "ul.zones-list" ).children().each(function(i, elem) {
       
         if($(this).find('.zone-details').length != 0)  {
-          var name = $(this).find( ".zone-details" ).attr('title');
-          var id = $(this).find( "input[name*='zone-id']" ).attr('value');
-          console.log(id + " " + name);
+          zone.name = $(this).find( ".zone-details" ).attr('title');
+          zone.id = $(this).find( "input[name*='zone-id']" ).attr('value');
+          //console.log(id + " " + name);
+          zones.push(zone);
         }
         else {
-          console.log ('no zones');
+          //console.log ('no zones');
         }
 
 
       });
+      console.log ('end of loop');
+      console.log(zones);
 
     } else {
       console.error("error on request");
@@ -103,7 +108,7 @@ function getStopsData() {
 
   connection.connect();
 
-  connection.query('select * from stop_names', function(err, rows, fields) {
+  connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES ('2', 'asdfa', 'dddd');', function(err, rows, fields) {
     if (err) throw err;
 
     console.log(rows);
