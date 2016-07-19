@@ -75,11 +75,18 @@ function getStopsData() {
       // parse html to json
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
-      $( "ul.zones-list" ).children('li a').each(function(i, elem) {
-        var name = $(this).find( ".zone-details" ).attr('title');
-        var id = $(this).find( "input[name*='zone-id']" ).attr('value');
-       // console.log(id);
-        console.log(name);
+      $( "ul.zones-list" ).children().each(function(i, elem) {
+      
+        if($(this).find('.zone-details').length != 0)  {
+          var name = $(this).find( ".zone-details" ).attr('title');
+          var id = $(this).find( "input[name*='zone-id']" ).attr('value');
+          console.log(id + " " + name);
+        }
+        else {
+          console.log ('no zones');
+        }
+
+
       });
 
     } else {
