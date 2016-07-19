@@ -65,7 +65,7 @@ connection.connect();
 connection.query('select * from stop_names', function(err, rows, fields) {
   if (err) throw err;
 
-  console.log(result);
+  console.log(rows);
 });
 
 connection.end();
