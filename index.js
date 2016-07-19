@@ -92,7 +92,7 @@ function getStopsData() {
 
       });
       console.log ('end of loop');
-      console.log(zones);
+      console.log(zones[5]);
 
     } else {
       console.error("error on request");
