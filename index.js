@@ -69,13 +69,11 @@ function getStopsData() {
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log('http success');
-      console.log(body);
-      console.log(response);
 
     } else {
       console.error("error on request");
-      console.log(body);
-      console.log(response);
+      console.log('error');
+
     }
   }); 
 
