@@ -54,6 +54,25 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200);
 });
 
+
+// connect to DB
+
+var mysql = require('mysql');
+var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
+
+connection.connect();
+
+connection.query('select * from stop_names', function(err, rows, fields) {
+  if (err) throw err;
+
+  console.log(result);
+});
+
+connection.end();
+
+
+// function to send generic messages
+
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
