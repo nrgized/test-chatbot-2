@@ -68,7 +68,17 @@ function getStopsData() {
     maxRedirects: 10
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
+      // acction on HTTP request success
+
       console.log('http success');
+
+      // parse html to json
+      var cheerio = require('cheerio'),
+      $ = cheerio.load(body);
+      $( "ul.zones-list" ).children().each(function(i, elem) {
+        var name = $(this).find('.zone-name').text();
+        console.log(name);
+      });
 
     } else {
       console.error("error on request");
