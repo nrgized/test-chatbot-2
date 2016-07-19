@@ -54,22 +54,46 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200);
 });
 
+// function to send GET request and parse stop names
+function getStopsData() {
+  request({
+    var url = 'https://login.citybee.lt/lt/';
+    headers: {
+        'Cookie': 'PHPSESSID=7jr278b6p6t2dssg9orisikd80; device_view=full; BCSI-CS-97976de0be87e764=2; BIGipServerglosC-proxyVIP-bc-RBB-web_gdcsfscs05-55_8050_pool=3242406179.29215.0000; _ga=GA1.2.500491733.1468570414; BCSI-CS-b933f65a4f518259=2; BIGipServerSlough-proxyVIP-bc-RBB-web-SLGSFSCS105-155_8050_pool=3778638102.29215.0000; __utmt=1; __utma=269912044.500491733.1468570414.1468570425.1468587689.2; __utmb=269912044.4.10.1468587689; __utmc=269912044; __utmz=269912044.1468587689.2.2.utmcsr=citybee.lt|utmccn=(referral)|utmcmd=referral|utmcct=/lt/'
+      },
+      uri: url,
+      method: "POST",
+      timeout: 10000,
+      followRedirect: true,
+      maxRedirects: 10
 
-// connect to DB
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log('http success');
 
-var mysql = require('mysql');
-var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
+    } else {
+      console.error("error on request");
+    }
+  }); 
 
-connection.connect();
+  // connect to DB
+/*
+  var mysql = require('mysql');
+  var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
 
-connection.query('select * from stop_names', function(err, rows, fields) {
-  if (err) throw err;
+  connection.connect();
 
-  console.log(rows);
-});
+  connection.query('select * from stop_names', function(err, rows, fields) {
+    if (err) throw err;
 
-connection.end();
+    console.log(rows);
+  });
 
+  connection.end();
+  */
+}
+
+getStopsData();
 
 // function to send generic messages
 
