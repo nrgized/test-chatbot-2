@@ -76,7 +76,7 @@ function getStopsData() {
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
       var zones = [];
-      var queryStringValues; 
+      var queryStringValues = ""; 
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
         if($(this).find('.zone-details').length != 0)  {
@@ -86,7 +86,7 @@ function getStopsData() {
           zone.id = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
           zones.push(zone);
-          queryStringValues += "(" + zone.id + "," + zone.nameLT + "," + zone.nameEN + ")";
+          queryStringValues += "('" + zone.id + "','" + zone.nameLT + "','" + zone.nameEN + "')";
         }
         else {
           //console.log ('no zones');
