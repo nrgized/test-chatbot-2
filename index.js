@@ -114,7 +114,7 @@ function getStopsData() {
 
   connection.connect();
 
-  connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES ('9', 'asdfa', 'dddd');', function(err, rows, fields) {
+  connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES (9, 'asdfa', 'dddd');', function(err, rows, fields) {
     if (err) throw err;
 
     console.log(rows);
