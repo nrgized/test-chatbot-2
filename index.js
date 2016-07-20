@@ -95,7 +95,7 @@ function getStopsData() {
 
       });
       console.log ('end of loop');
-        var queryString = "INSERT INTO `qll8yu61wian72aj`.`stop_names` (`id`, `nameLT`, `nameEN`) VALUES " + queryStringValues;
+        var queryString = "INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES " + queryStringValues;
         //console.log (queryString);
 
         
