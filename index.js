@@ -132,7 +132,7 @@ function getStopsData() {
   connection.end();
   */
 }
-
+ 
 getStopsData();
 
 // function to send generic messages
