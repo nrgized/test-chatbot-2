@@ -76,7 +76,7 @@ function getStopsData() {
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
       var zones = [];
-      
+      var queryStringValues; 
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
         if($(this).find('.zone-details').length != 0)  {
@@ -86,19 +86,17 @@ function getStopsData() {
           zone.id = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
           zones.push(zone);
+          queryStringValues += "(zone.id + "," + zone.nameLT + "," + zone.nameEN)";
         }
         else {
           //console.log ('no zones');
         }
-
+        
 
       });
       console.log ('end of loop');
-      console.log(zones[5].id);
-      console.log(zones[5].nameLT);
-      console.log(zones[5].nameEN);
-      console.log(zones.length);
-
+        var queryString = "INSERT INTO `qll8yu61wian72aj`.`stop_names` (`id`, `nameLT`, `nameEN`) VALUES " + queryStringValues;
+        console.log (queryString);
     } else {
       console.error("error on request");
       console.log('error');
