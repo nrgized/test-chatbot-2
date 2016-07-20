@@ -81,7 +81,7 @@ function getStopsData() {
         var zone = {};
         if($(this).find('.zone-details').length != 0)  {
           zone.nameFull = $(this).find( ".zone-details" ).attr('title');
-          zone.nameLT = zone.nameFull.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+          zone.nameLT = zone.nameFull.replace(/[`„“~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
           zone.nameEN = zone.nameLT.replace(/ą/gi,'a').replace(/č/gi, 'c').replace(/ę|ė/gi, 'e').replace(/į/gi, 'i').replace(/ų|ū/gi, 'u').replace(/ž/gi, 'z').replace(/"/gi, '');
           zone.id = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
