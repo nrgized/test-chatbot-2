@@ -124,7 +124,7 @@ function getStopsData() {
 
 }
  
-getStopsData();
+//getStopsData();
 
 // function to send generic messages
 
