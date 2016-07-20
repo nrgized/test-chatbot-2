@@ -76,9 +76,9 @@ function getStopsData() {
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
       var zones = [];
-      var zone = {};
-      $( "ul.zones-list" ).children().each(function(i, elem) {
       
+      $( "ul.zones-list" ).children().each(function(i, elem) {
+        var zone = {};
         if($(this).find('.zone-details').length != 0)  {
           zone.name = $(this).find( ".zone-details" ).attr('title');
           zone.id = $(this).find( "input[name*='zone-id']" ).attr('value');
