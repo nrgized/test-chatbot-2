@@ -59,7 +59,7 @@ app.post('/webhook/', function (req, res) {
                 for (var i = 0; i < totalZones; i++) {
                     var nameEN = zone.nameEN;
                     if (nameEN.indexOf(value) > 0) {
-                      endTextMessage(sender, "match " + nameEN);
+                      sendTextMessage(sender, "match " + nameEN);
                     }
                 } 
 
