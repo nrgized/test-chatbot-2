@@ -59,7 +59,7 @@ app.post('/webhook/', function (req, res) {
                 console.log(value);
                // sendTextMessage(sender, "grotele " + value);
                 //console.log(zones.length);
-                
+               /* 
                 for (var i = 0; i < zones.length; i++) {
                     if (zones[i].nameEN.indexOf(value) > 0) {
                  //     sendTextMessage(sender, "match " + nameEN);
@@ -71,7 +71,7 @@ app.post('/webhook/', function (req, res) {
                    // console.log("no match");
                     }
                 } 
-                
+                */
 
                 //sendTextMessage(sender, "stotele " + value);
                 //getHTTPinfo(sender, value);
