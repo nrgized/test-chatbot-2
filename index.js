@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
+var zones = [];
 
 app.use(bodyParser.json());
 
@@ -37,6 +38,11 @@ app.post('/webhook/', function (req, res) {
             if (text === 'bee') {
                 console.log('bee');
                 getStopsData();
+            continue
+            }
+            if (text === 'zones') {
+                console.log('zones');
+                console.log(zones);
             continue
             }
             if (text.charAt(0) === '@') {
@@ -75,7 +81,7 @@ function getStopsData() {
       // parse html to json
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
-      var zones = [];
+      //var zones = [];
       var queryStringValues = ""; 
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
@@ -96,7 +102,7 @@ function getStopsData() {
 
       });
       console.log ('end of loop');
-      
+     /* 
       // SQL query
       
       //console.log (queryString);
@@ -124,7 +130,7 @@ function getStopsData() {
       console.log(rows);
       });
       connection.end();
-    
+    */
         
     } else {
         // http request failing
