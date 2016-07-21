@@ -60,7 +60,7 @@ app.post('/webhook/', function (req, res) {
                     if (nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + nameEN);
                     }
-                    console.log(i);
+                    console.log(zones[i].nameEN);
                 } 
 
                 //sendTextMessage(sender, "stotele " + value);
