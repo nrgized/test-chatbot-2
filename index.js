@@ -215,7 +215,7 @@ function getHTTPinfo(sender, value) {
           },
           uri: url,
           method: "POST",
-          timeout: 10000,
+          timeout: 100000,
           followRedirect: true,
           maxRedirects: 10
         }, function(error, response, body) {
