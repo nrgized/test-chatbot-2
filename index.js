@@ -84,9 +84,10 @@ function getStopsData() {
           zone.nameLT = zone.nameFull.replace(/[`„“~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
           zone.nameEN = zone.nameLT.replace(/ą/gi,'a').replace(/č/gi, 'c').replace(/ę|ė/gi, 'e').replace(/į/gi, 'i').replace(/š/gi, 's').replace(/ų|ū/gi, 'u').replace(/ž/gi, 'z').replace(/"/gi, '');
           zone.id = $(this).find( "input[name*='zone-id']" ).attr('value');
+          zone.index = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
           zones.push(zone);
-          queryStringValues += "(" + zone.id + "','" + zone.nameLT + "','" + zone.nameEN + "')";
+          queryStringValues += "(`" + zone.index + "`, `" + zone.nameLT + "`, `" + zone.nameEN + "`)";
         }
         else {
           //console.log ('no zones');
@@ -104,8 +105,8 @@ function getStopsData() {
       connection.connect();
       //connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES (9, 'asdfa', 'dddd');', function(err, rows, fields) {
       //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`) VALUES (12, 'asdfa', 'dddd');", function(err, rows, fields) {
-      connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
-      //connection.query("INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES (12, 'stopnameLT', 'stopnameEN');", function(err, rows, fields) {
+      //connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
+      connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES " + queryStringValues + ";", function(err, rows, fields) {
       if (err) throw err;
       console.log(rows);
       });
