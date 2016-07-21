@@ -55,7 +55,7 @@ app.post('/webhook/', function (req, res) {
             if (text.charAt(0) === '$') {
                 var value = text.substring(1, 200);
                 console.log('$$$$');
-                for (var i = 0; i < zones.length;; i++) {
+                for (var i = 0; i < zones.length; i++) {
                     var nameEN = zones[i].nameEN;
                     if (nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + nameEN);
