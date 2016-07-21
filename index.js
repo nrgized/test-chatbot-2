@@ -103,7 +103,7 @@ function getStopsData() {
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       
-      var queryString = 'INSERT INTO "stop_names" ("index", "nameLT", "nameEN", "id") VALUES ' + queryStringValues + ';';
+      var queryString = 'INSERT INTO "stop_names" (index, nameLT, nameEN, id) VALUES ' + queryStringValues + ';';
       console.log (queryString);
     
       var mysql = require('mysql');
