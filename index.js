@@ -52,14 +52,14 @@ app.post('/webhook/', function (req, res) {
                 getHTTPinfo(sender, value);
             continue
             }
-            if (text.charAt(0) === '!') {
+            if (text.charAt(0) === '$') {
                 var value = text.substring(1, 200);
-                var totalZones = zones.length;
-                console.log("!!!!");
-                for (var i = 0; i < totalZones; i++) {
+                console.log('$$$$');
+                for (var i = 0; i < zones.length;; i++) {
                     var nameEN = zones[i].nameEN;
                     if (nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + nameEN);
+                      console.log(i);
                     }
                 } 
 
