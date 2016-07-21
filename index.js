@@ -12,7 +12,7 @@ app.set('page_access_token', (process.env.PAGE_ACCESS_TOKEN || 'NULL'));
 app.get('/', function (req, res) {
         res.send('It Works! Follow FB Instructions to activate.');
 });
-
+ 
 app.get('/webhook', function (req, res) {
     if (req.query['hub.verify_token'] === app.get('verify_token')) {
         res.send(req.query['hub.challenge']);
