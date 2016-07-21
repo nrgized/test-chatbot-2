@@ -96,16 +96,16 @@ function getStopsData() {
 
       });
       console.log ('end of loop');
-      console.log (queryStringValues);
+      
       // SQL query
       
       //console.log (queryString);
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       
-      var queryString = 'INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES ' + queryStringValues + ';';
+      var queryString = 'INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES ' + queryStringValues + ';';
       console.log (queryString);
-    /*
+    
       var mysql = require('mysql');
       var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
       
@@ -115,11 +115,12 @@ function getStopsData() {
       //connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
       //connection.query('DELETE FROM stop_names;', function(err, rows, fields) {
       //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES " + queryStringValues + ";", function(err, rows, fields) {
+      connection.query(queryString, function(err, rows, fields) {
       if (err) throw err;
       console.log(rows);
       });
       connection.end();
-    */    
+    
         
     } else {
         // http request failing
