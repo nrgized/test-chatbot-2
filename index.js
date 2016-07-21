@@ -95,20 +95,32 @@ function getStopsData() {
 
       });
       console.log ('end of loop');
-        var queryString = "INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES " + queryStringValues;
-        //console.log (queryString);
-
+      // SQL query
+      var queryString = "INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES " + queryStringValues;
+      //console.log (queryString);
+      var mysql = require('mysql');
+      var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
+      
+      connection.connect();
+      //connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES (9, 'asdfa', 'dddd');', function(err, rows, fields) {
+      //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`) VALUES (12, 'asdfa', 'dddd');", function(err, rows, fields) {
+      connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
+      if (err) throw err;
+      console.log(rows);
+      });
+      connection.end();
         
         
     } else {
+        // http request failing
       console.error("error on request");
       console.log('error');
-
+e
     }
   }); 
 
   // connect to DB
-
+/*
   var mysql = require('mysql');
   var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
 
@@ -122,7 +134,7 @@ function getStopsData() {
   });
 
   connection.end();
-
+*/
 }
  
 getStopsData();
