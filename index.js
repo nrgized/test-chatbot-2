@@ -105,6 +105,7 @@ function getStopsData() {
       
       var queryString = 'INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES ' + queryStringValues + ';';
       console.log (queryString);
+    /*
       var mysql = require('mysql');
       var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
       
@@ -118,7 +119,7 @@ function getStopsData() {
       console.log(rows);
       });
       connection.end();
-        
+    */    
         
     } else {
         // http request failing
