@@ -56,18 +56,18 @@ app.post('/webhook/', function (req, res) {
                 var value = text.substring(1, 200);
                 //console.log('####');
                 //console.log(value);
-                sendTextMessage(sender, "grotele " + value);
+               // sendTextMessage(sender, "grotele " + value);
                 //console.log(zones.length);
                 
                 for (var i = 0; i < zones.length; i++) {
                     if (zones[i].nameEN.indexOf(value) > 0) {
-                      sendTextMessage(sender, "match " + nameEN);
-                      console.log("match");
+                 //     sendTextMessage(sender, "match " + nameEN);
+                     // console.log("match");
                     }
                     //console.log(zones[i].nameEN);
                     else {
                   //    sendTextMessage(sender, "no match");
-                    console.log("no match");
+                   // console.log("no match");
                     }
                 } 
                 
