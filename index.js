@@ -87,7 +87,7 @@ function getStopsData() {
           zone.index = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
           zones.push(zone);
-          queryStringValues += "(" + zone.index + ", `" + zone.nameLT + "`, `" + zone.nameEN + "`, " + zone.id + "), ";
+          queryStringValues += "(" + zone.index + ", '" + zone.nameLT + "', '" + zone.nameEN + "', " + zone.id + "), ";
         }
         else {
           //console.log ('no zones');
@@ -103,7 +103,7 @@ function getStopsData() {
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       
-      var queryString = 'INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES ' + queryStringValues + ';';
+      var queryString = "INSERT INTO 'stop_names' ('index', 'nameLT', 'nameEN', 'id') VALUES " + queryStringValues + ";";
       console.log (queryString);
     
       var mysql = require('mysql');
