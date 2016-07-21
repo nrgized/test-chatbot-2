@@ -87,7 +87,7 @@ function getStopsData() {
           zone.index = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
           zones.push(zone);
-          queryStringValues += "(" + zone.index + ", `" + zone.nameLT + "`, `" + zone.nameEN + "`, " + zone.id + ")";
+          queryStringValues += "(" + zone.index + ", `" + zone.nameLT + "`, `" + zone.nameEN + "`, " + zone.id + "), ";
         }
         else {
           //console.log ('no zones');
@@ -98,8 +98,9 @@ function getStopsData() {
       console.log ('end of loop');
       console.log (queryStringValues);
       // SQL query
-      var queryString = "INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES " + queryStringValues;
+      //var queryString = "INSERT INTO `stop_names` (`id`, `nameLT`, `nameEN`) VALUES " + queryStringValues;
       //console.log (queryString);
+      queryString = queryString.slice(0,-2);
       var mysql = require('mysql');
       var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
       
