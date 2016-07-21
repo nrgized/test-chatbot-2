@@ -56,6 +56,9 @@ app.post('/webhook/', function (req, res) {
                 var value = text.substring(1, 200);
                 console.log('####');
                 console.log(value);
+                sendTextMessage(sender, "grotele " + value);
+                console.log(zones.length);
+                /*
                 for (var i = 0; i < zones.length; i++) {
                     var nameEN = zones[i].nameEN;
                     if (nameEN.indexOf(value) > 0) {
@@ -64,6 +67,7 @@ app.post('/webhook/', function (req, res) {
                     }
                     //console.log(zones[i].nameEN);
                 } 
+                */
 
                 //sendTextMessage(sender, "stotele " + value);
                 //getHTTPinfo(sender, value);
