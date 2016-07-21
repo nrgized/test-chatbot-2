@@ -55,12 +55,14 @@ app.post('/webhook/', function (req, res) {
             if (text.charAt(0) === '#') {
                 var value = text.substring(1, 200);
                 console.log('####');
+                console.log(value);
                 for (var i = 0; i < zones.length; i++) {
                     var nameEN = zones[i].nameEN;
                     if (nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + nameEN);
+                      console.log("match");
                     }
-                    console.log(zones[i].nameEN);
+                    //console.log(zones[i].nameEN);
                 } 
 
                 //sendTextMessage(sender, "stotele " + value);
