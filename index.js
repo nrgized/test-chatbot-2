@@ -102,15 +102,16 @@ function getStopsData() {
       //console.log (queryString);
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
+      console.log (queryStringValues);
       var mysql = require('mysql');
       var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
       
       connection.connect();
       //connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES (9, 'asdfa', 'dddd');', function(err, rows, fields) {
       //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`) VALUES (12, 'asdfa', 'dddd');", function(err, rows, fields) {
-      //connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
+      connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
       //connection.query('DELETE * FROM stop_names;', function(err, rows, fields) {
-      connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES " + queryStringValues + ";", function(err, rows, fields) {
+      //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES " + queryStringValues + ";", function(err, rows, fields) {
       if (err) throw err;
       console.log(rows);
       });
