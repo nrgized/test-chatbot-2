@@ -52,11 +52,11 @@ app.post('/webhook/', function (req, res) {
                 getHTTPinfo(sender, value);
             continue
             }
-            /*
+            
             if (text.charAt(0) === '#') {
                 var value = text.substring(1, 200);
-                //console.log('####');
-                //console.log(value);
+                console.log('####');
+                console.log(value);
                // sendTextMessage(sender, "grotele " + value);
                 //console.log(zones.length);
                 
@@ -77,7 +77,7 @@ app.post('/webhook/', function (req, res) {
                 //getHTTPinfo(sender, value);
             continue
             }
-           */
+           
             // Your Logic Replaces the following Line
             sendTextMessage(sender, "Text received 123, echo: "+ text.substring(0, 200));
         }
