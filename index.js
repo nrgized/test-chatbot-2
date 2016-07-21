@@ -104,7 +104,8 @@ function getStopsData() {
       queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
       
       // var queryString = 'INSERT INTO stop_names (index, nameLT, nameEN, id) VALUES ' + queryStringValues + ';';
-      var queryString = "INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES (19, 'asdfa', 'dddd', 19), (20, 'asdfa', 'dddd', 20);"
+      //var queryString = "INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES (19, 'asdfa', 'dddd', 19), (20, 'asdfa', 'dddd', 20);"
+      var queryString = "DELETE FROM stop_names";
       console.log (queryString);
     
       var mysql = require('mysql');
