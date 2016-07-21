@@ -54,10 +54,10 @@ app.post('/webhook/', function (req, res) {
             }
             if (text.charAt(0) === '#') {
                 var value = text.substring(1, 200);
-                console.log('####');
-                console.log(value);
+                //console.log('####');
+                //console.log(value);
                 sendTextMessage(sender, "grotele " + value);
-                console.log(zones.length);
+                //console.log(zones.length);
                 
                 for (var i = 0; i < zones.length; i++) {
                     if (zones[i].nameEN.indexOf(value) > 0) {
@@ -66,7 +66,8 @@ app.post('/webhook/', function (req, res) {
                     }
                     //console.log(zones[i].nameEN);
                     else {
-                      sendTextMessage(sender, "no match");
+                  //    sendTextMessage(sender, "no match");
+                    console.log("no match");
                     }
                 } 
                 
