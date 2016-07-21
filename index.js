@@ -118,7 +118,6 @@ function getStopsData() {
         // http request failing
       console.error("error on request");
       console.log('error');
-e
     }
   }); 
 
