@@ -87,7 +87,7 @@ function getStopsData() {
           zone.index = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
           zones.push(zone);
-          queryStringValues += "(`" + zone.index + "`, `" + zone.nameLT + "`, `" + zone.nameEN + "`)";
+          queryStringValues += "(`" + zone.index + "`, `" + zone.nameLT + "`, `" + zone.nameEN + "`, `" + zone.id + "`)";
         }
         else {
           //console.log ('no zones');
