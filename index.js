@@ -36,7 +36,7 @@ app.post('/webhook/', function (req, res) {
             }
             if (text === 'bee') {
                 console.log('bee');
-                //getHTTPinfo();
+                getStopsData();
             continue
             }
             if (text.charAt(0) === '@') {
@@ -105,22 +105,22 @@ function getStopsData() {
       
       var queryString = 'INSERT INTO "stop_names" ("index", "nameLT", "nameEN", "id") VALUES ' + queryStringValues + ';';
       console.log (queryString);
-    /*
+    
       var mysql = require('mysql');
       var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
       
       connection.connect();
       //connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES (9, 'asdfa', 'dddd');', function(err, rows, fields) {
       //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`) VALUES (12, 'asdfa', 'dddd');", function(err, rows, fields) {
-      connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
+      //connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
       //connection.query('DELETE FROM stop_names;', function(err, rows, fields) {
       //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES " + queryStringValues + ";", function(err, rows, fields) {
-      //connection.query(queryString, function(err, rows, fields) {
+      connection.query(queryString, function(err, rows, fields) {
       if (err) throw err;
       console.log(rows);
       });
       connection.end();
-    */
+    
         
     } else {
         // http request failing
@@ -147,7 +147,7 @@ function getStopsData() {
 */
 }
  
-getStopsData();
+
 
 // function to send generic messages
 
