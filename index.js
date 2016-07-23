@@ -64,7 +64,7 @@ app.post('/webhook/', function (req, res) {
                     if (zones[i].nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + zones[i].nameFull);
                      // console.log("match");
-                     matches.push(zones[i]);s
+                     matches.push(zones[i]);
                      console.log(i);
                     }
                     //console.log(zones[i].nameEN);
