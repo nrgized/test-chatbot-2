@@ -64,7 +64,7 @@ app.post('/webhook/', function (req, res) {
                     if (zones[i].nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + zones[i].nameFull);
                      // console.log("match");
-                     matches.push(zone);
+                     matches.push(zones[i]);
                      console.log(i);
                     }
                     //console.log(zones[i].nameEN);
@@ -81,7 +81,7 @@ app.post('/webhook/', function (req, res) {
                   getHTTPinfo(sender, matches[0].id);
                   continue
                 }
-                
+
 
 
 
