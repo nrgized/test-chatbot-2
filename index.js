@@ -59,11 +59,12 @@ app.post('/webhook/', function (req, res) {
                 console.log(value);
                 sendTextMessage(sender, "grotele " + value);
                 console.log(zones.length);
-               
+                var matches = [];
                 for (var i = 0; i < zones.length; i++) {
                     if (zones[i].nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + zones[i].nameFull);
                      // console.log("match");
+                     matches.push(zone);
                      console.log(i);
                     }
                     //console.log(zones[i].nameEN);
@@ -71,7 +72,25 @@ app.post('/webhook/', function (req, res) {
                   //    sendTextMessage(sender, "no match");
                    // console.log("no match");
                     }
-                }; 
+                };
+                if (matches.length <1 ) {
+                  sendTextMessage(sender, "patikslinkite uzklausa");
+                  continue
+                }
+                if (matches.length === 1) {
+                  getHTTPinfo(sender, matches[0].id);
+                  continue
+                }
+                
+
+
+
+                // check matches
+
+
+
+
+
                 
 
                 //sendTextMessage(sender, "stotele " + value);
