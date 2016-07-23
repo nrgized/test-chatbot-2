@@ -64,7 +64,7 @@ app.post('/webhook/', function (req, res) {
                     if (zones[i].nameEN.indexOf(value) > 0) {
                       sendTextMessage(sender, "match " + zones[i].nameFull);
                      // console.log("match");
-                     matches.push(zones[i]);
+                     matches.push(zones[i]);s
                      console.log(i);
                     }
                     //console.log(zones[i].nameEN);
@@ -75,11 +75,11 @@ app.post('/webhook/', function (req, res) {
                 };
                 if (matches.length <1 ) {
                   sendTextMessage(sender, "patikslinkite uzklausa");
-                  continue
+                  
                 }
-                if (matches.length === 1) {
+                else if (matches.length === 1) {
                   getHTTPinfo(sender, matches[0].id);
-                  continue
+                  
                 }
 
 
