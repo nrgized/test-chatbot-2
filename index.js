@@ -65,7 +65,7 @@ app.post('/webhook/', function (req, res) {
                       sendTextMessage(sender, "match " + zones[i].nameFull);
                      // console.log("match");
                      matches.push(zones[i]);
-                     console.log(i);
+                     //console.log(i);
                     }
                     //console.log(zones[i].nameEN);
                     else {
