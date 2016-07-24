@@ -56,7 +56,8 @@ app.post('/webhook/', function (req, res) {
                 console.log("groteles");
                 var value = text.substring(1, 200);
                 for (i = 0; i < zones.length; i++) {
-                  console.log(zones[i].nameFull);
+                  if (zones[i].nameEN.indexOf(value) > 0)
+                  { console.log(zones[i].id); } 
                 }
             continue
             }
