@@ -70,7 +70,7 @@ app.post('/webhook/', function (req, res) {
                     element = {
                       buttons: [{
                         type: "web_url",
-                        url: car.bookUrl,
+                        url: "http://bbc.com",
                         title: matches[i].nameFull
                       }]
                     };
