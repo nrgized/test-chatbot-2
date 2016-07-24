@@ -68,7 +68,7 @@ app.post('/webhook/', function (req, res) {
                   } 
                 }
                 console.log(matches.length);
-                console.log(matches[0].nameFull);
+               // console.log(matches[0].nameFull);
             continue
             }
            
