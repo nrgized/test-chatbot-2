@@ -81,9 +81,9 @@ app.post('/webhook/', function (req, res) {
                     },
                     message:{
                       attachment:{
-                        type:template,
+                        type: "template",
                         payload:{
-                          template_type:button,
+                          template_type: "button",
                           text:"pasirinkite is zemiau esanciu stoteliu",
                           buttons:elements
                         }
