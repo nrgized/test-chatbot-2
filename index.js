@@ -68,6 +68,9 @@ app.post('/webhook/', function (req, res) {
                   } 
                 }
                 console.log(matches.length);
+                for (i = 0; i < matches.length; i++) {
+                  console.log(matches.id);
+                }
                // console.log(matches[0].nameFull);
             continue
             }
