@@ -84,25 +84,14 @@ app.post('/webhook/', function (req, res) {
                         "payload":{
                           "template_type":"button",
                           "text":"What do you want to do next?",
-                          "buttons":[
-                            {
-                              "type":"web_url",
-                              "url":"https://petersapparel.parseapp.com",
-                              "title":"Show Website"
-                            },
-                            {
-                              "type":"postback",
-                              "title":"Start Chatting",
-                              "payload":"USER_DEFINED_PAYLOAD"
-                            }
-                          ]
+                          "buttons": buttons
                         }
                       }
                     }
                   }; 
                   callSendAPI(messageData);
                   sendTextMessage(sender, "st" + buttons.length);
-                  sendTextMessage(sender, "st" + buttons[0]);
+                  sendTextMessage(sender, "st" + buttons[0].type);
                 }
                 else {
                   sendTextMessage(sender, "stoteliu rast per daug. patisklinkite paieska");
