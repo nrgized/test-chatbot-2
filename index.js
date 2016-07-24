@@ -70,26 +70,37 @@ app.post('/webhook/', function (req, res) {
                     element = {
                         type: "web_url",
                         url: "http://bbc.com",
-                        title: matches[i].nameFull
+                        title: "1"
   
                     };
                     elements.push(element);
-                  }
+                  };
                   var messageData = {
-                    recipient:{
-                      id: sender
+                    "recipient":{
+                      "id": sender
                     },
-                    message:{
-                      attachment:{
-                        type: "template",
-                        payload:{
-                          template_type: "button",
-                          text:"pasirinkite is zemiau esanciu stoteliu",
-                          buttons:elements
+                    "message":{
+                      "attachment":{
+                        "type":"template",
+                        "payload":{
+                          "template_type":"button",
+                          "text":"What do you want to do next?",
+                          "buttons":[
+                            {
+                              "type":"web_url",
+                              "url":"https://petersapparel.parseapp.com",
+                              "title":"Show Website"
+                            },
+                            {
+                              "type":"postback",
+                              "title":"Start Chatting",
+                              "payload":"USER_DEFINED_PAYLOAD"
+                            }
+                          ]
                         }
                       }
                     }
-                  };  
+                  }; 
                   callSendAPI(messageData);
                 }
                 else {
