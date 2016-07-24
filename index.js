@@ -59,10 +59,10 @@ app.post('/webhook/', function (req, res) {
                 for (i = 0; i < zones.length; i++) {
                   if (zones[i].nameEN.indexOf(value) > 0)
                   { 
-                    matches.push(zones[i]);
+                    console.log(zones[i]);
                     //console.log(matches[i].id); 
                   } 
-                  console.log(matches[0]);
+                  //console.log(matches[0]);
                 }
             continue
             }
