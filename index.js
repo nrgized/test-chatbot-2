@@ -64,15 +64,26 @@ app.post('/webhook/', function (req, res) {
                 }
                 else if (matches.length < 6) {
                  // sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
-                  var buttons = [];
+                  var buttons = [
+                      {
+                        "type":"web_url",
+                        "url":"https://petersapparel.parseapp.com",
+                        "title":"Show Website"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"Start Chatting",
+                        "payload":"USER_DEFINED_PAYLOAD"
+                      }
+                    ];
+                  var button = {};
                   for (i = 0; i < matches.length; i++) {
-                    var button = {};
                     button = {
                       type: "postback",
                       title: "111",
                       payload: "USER_DEFINED_PAYLOAD"
-                    };
-                    buttons.push(button);
+                    }
+                    //buttons.push(button);
                   };
                   var messageData = {
                     "recipient":{
