@@ -101,8 +101,8 @@ app.post('/webhook/', function (req, res) {
                     }
                   }; 
                   callSendAPI(messageData);
-                  console.log(buttons.length);
-                  console.log(buttons[0]);
+                  sendTextMessage(sender, "st" + buttons.length);
+                  sendTextMessage(sender, "st" + buttons[0]);
                 }
                 else {
                   sendTextMessage(sender, "stoteliu rast per daug. patisklinkite paieska");
