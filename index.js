@@ -35,23 +35,6 @@ app.post('/webhook/', function (req, res) {
                 sendGenericMessage(sender);
             continue
             }
-            if (text === 'bee') {
-                console.log('bee');
-                getStopsData();
-            continue
-            }
-            if (text === 'zones') {
-                console.log('zones');
-                console.log(zones);
-            continue
-            }
-            if (text.charAt(0) === '@') {
-                var value = text.substring(1, 200);
-                console.log("@@@@@");
-                sendTextMessage(sender, "stotele " + value);
-                getHTTPinfo(sender, value);
-            continue
-            }
             if (text.charAt(0) == '#') {
                 console.log("groteles");
                 var matches = [];
@@ -74,6 +57,24 @@ app.post('/webhook/', function (req, res) {
                // console.log(matches[0].nameFull);
             continue
             }
+            if (text === 'bee') {
+                console.log('bee');
+                getStopsData();
+            continue
+            }
+            if (text === 'zones') {
+                console.log('zones');
+                console.log(zones);
+            continue
+            }
+            if (text.charAt(0) === '@') {
+                var value = text.substring(1, 200);
+                console.log("@@@@@");
+                sendTextMessage(sender, "stotele " + value);
+                getHTTPinfo(sender, value);
+            continue
+            }
+
            
             // Your Logic Replaces the following Line
             sendTextMessage(sender, "Text received 123, echo: "+ text.substring(0, 200));
