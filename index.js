@@ -60,7 +60,7 @@ app.post('/webhook/', function (req, res) {
                   sendTextMessage(sender, "stoteles tokiu pavadinimu nera ");
                 }
                 else if (matches.length === 1) {
-                  getHTTPinfo(sender, value);
+                  getHTTPinfo(sender, matches[0].id);
                 }
                 else if (matches.length < 6) {
                  // sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
