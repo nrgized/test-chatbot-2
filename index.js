@@ -68,9 +68,9 @@ app.post('/webhook/', function (req, res) {
                   for (i = 0; i < matches.length; i++) {
                     var button = {};
                     button = {
-                      "type":"postback",
-                      "title": "111",
-                      "payload":"USER_DEFINED_PAYLOAD"
+                      type: "postback",
+                      title: "111",
+                      payload: "USER_DEFINED_PAYLOAD"
                     };
                     buttons.push(button);
                   };
@@ -84,18 +84,7 @@ app.post('/webhook/', function (req, res) {
                         "payload":{
                           "template_type":"button",
                           "text":"What do you want to do next?",
-                          "buttons":[
-                            {
-                              "type":"web_url",
-                              "url":"https://petersapparel.parseapp.com",
-                              "title":"Show Website"
-                            },
-                            {
-                              "type":"postback",
-                              "title":"Start Chatting",
-                              "payload":"USER_DEFINED_PAYLOAD"
-                            }
-                          ]
+                          "buttons": buttons
                         }
                       }
                     }
