@@ -54,10 +54,15 @@ app.post('/webhook/', function (req, res) {
             }
             if (text.charAt(0) == '#') {
                 console.log("groteles");
+                var matches = [];
                 var value = text.substring(1, 200);
                 for (i = 0; i < zones.length; i++) {
                   if (zones[i].nameEN.indexOf(value) > 0)
-                  { console.log(zones[i].id); } 
+                  { 
+                    matches.push(zones[i]);
+                    //console.log(matches[i].id); 
+                  } 
+                  console.log(matches[0]);
                 }
             continue
             }
