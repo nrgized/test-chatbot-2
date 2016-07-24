@@ -53,7 +53,7 @@ app.post('/webhook/', function (req, res) {
                 console.log(matches.length);
                 for (i = 0; i < matches.length; i++) {
                   console.log(matches[i].id);
-                  endTextMessage(sender, "match " + value);
+                  sendTextMessage(sender, "match " + matches[i].id);
                 }
                // console.log(matches[0].nameFull);
             continue
