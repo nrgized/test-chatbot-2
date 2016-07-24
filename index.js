@@ -53,7 +53,11 @@ app.post('/webhook/', function (req, res) {
             continue
             }
             if (text.charAt(0) == '#') {
-                console.log("@@");
+                console.log("groteles");
+                var value = text.substring(1, 200);
+                for (i = 0; i < zones.length; i++) {
+                  console.log(zones[i].nameFull);
+                }
             continue
             }
            
