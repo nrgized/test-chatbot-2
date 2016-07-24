@@ -52,8 +52,8 @@ app.post('/webhook/', function (req, res) {
                 getHTTPinfo(sender, value);
             continue
             }
-            if (text.charAt(0) === '#') {
-                console.log('###');
+            if (text.charAt(0) == '#') {
+                console.log("###");
             continue
             }
            
