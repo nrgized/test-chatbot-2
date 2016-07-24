@@ -64,12 +64,12 @@ app.post('/webhook/', function (req, res) {
                 }
                 else if (matches.length < 6) {
                  // sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
-                  var element = {};
+                  
                   for (i = 0; i < matches.length; i++) {
-                    
+                    var element = {};
                     element = {
                       "type":"postback",
-                      "title": matches[i].nameFull,
+                      "title": "111",
                       "payload":"USER_DEFINED_PAYLOAD"
   
                     };
