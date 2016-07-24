@@ -60,7 +60,7 @@ app.post('/webhook/', function (req, res) {
                 for (i = 0; i < zones.length; i++) {
                   if (zones[i].nameEN.indexOf(value) > 0)
                   { 
-                    match = zones[i];
+                    match.id = zones[i].id;
                     matches.push(match);
                     //console.log(zones[i]);
 
