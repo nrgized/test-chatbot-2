@@ -52,52 +52,11 @@ app.post('/webhook/', function (req, res) {
                 getHTTPinfo(sender, value);
             continue
             }
-            /*
             if (text.charAt(0) === '#') {
-                var value = text.substring(1, 200);
-              //  console.log('####');
-              //  console.log(value);
-                sendTextMessage(sender, "grotele " + value);
-                console.log(zones.length);
-                var matches = [];
-                for (var i = 0; i < zones.length; i++) {
-                    if (zones[i].nameEN.indexOf(value) > 0) {
-                      sendTextMessage(sender, "match " + zones[i].nameFull);
-                     // console.log("match");
-                     matches.push(zones[i]);
-                     //console.log(i);
-                    }
-                    //console.log(zones[i].nameEN);
-                    else {
-                  //    sendTextMessage(sender, "no match");
-                   // console.log("no match");
-                    }
-                };
-                if (matches.length <1 ) {
-                  sendTextMessage(sender, "patikslinkite uzklausa");
-                  
-                }
-                else if (matches.length === 1) {
-                  getHTTPinfo(sender, matches[0].id);
-                  
-                }
-
-
-
-
-                // check matches
-
-
-
-
-
-                
-
-                //sendTextMessage(sender, "stotele " + value);
-                //getHTTPinfo(sender, value);
+                console.log('###');
             continue
             }
-           */
+           
             // Your Logic Replaces the following Line
             sendTextMessage(sender, "Text received 123, echo: "+ text.substring(0, 200));
         }
