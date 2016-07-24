@@ -38,7 +38,7 @@ app.post('/webhook/', function (req, res) {
             if (text.charAt(0) == '#') {
                 console.log("groteles");
                 var matches = [];
-                
+                // check for matching zones
                 var value = text.substring(1, 200);
                 for (i = 0; i < zones.length; i++) {
                   if (zones[i].nameEN.indexOf(value) > 0)
@@ -49,12 +49,25 @@ app.post('/webhook/', function (req, res) {
                     match.nameEN = zones[i].nameEN;
                     match.nameLT = zones[i].nameLT;
                     matches.push(match);
-                    //console.log(zones[i]);
 
-                    //console.log(matches[i].id); 
                   } 
                 }
                 console.log(matches.length);
+                // action depending on amount of matching zones
+                if (matches.length <= 0) {
+                  sendTextMessage(sender, "stoteles tokiu pavadinimu nera ");
+                }
+                else if (matches.length === 1) {
+                  getHTTPinfo(sender, value);
+                }
+                else if (matches.length < 6) {
+                  sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
+                }
+                else {
+                  sendTextMessage(sender, "stoteliu rast per daug. patisklinkite paieska");
+                }
+
+
                 for (i = 0; i < matches.length; i++) {
                   console.log(matches[i].id);
                   sendTextMessage(sender, "match " + matches[i].id);
