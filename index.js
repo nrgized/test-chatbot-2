@@ -38,12 +38,16 @@ app.post('/webhook/', function (req, res) {
             if (text.charAt(0) == '#') {
                 console.log("groteles");
                 var matches = [];
-                var match = {};
+                
                 var value = text.substring(1, 200);
                 for (i = 0; i < zones.length; i++) {
                   if (zones[i].nameEN.indexOf(value) > 0)
                   { 
+                    var match = {};
                     match.id = zones[i].id;
+                    match.nameFull = zones[i].nameFull;
+                    match.nameEN = zones[i].nameEN;
+                    match.nameLT = zones[i].nameLT;
                     matches.push(match);
                     //console.log(zones[i]);
 
@@ -119,7 +123,7 @@ function getStopsData() {
           zone.index = $(this).find( "input[name*='zone-id']" ).attr('value');
           //console.log(id + " " + name);
           zones.push(zone);
-          queryStringValues += "(" + zone.index + ", '" + zone.nameLT + "', '" + zone.nameEN + "', " + zone.id + "), ";
+          //queryStringValues += "(" + zone.index + ", '" + zone.nameLT + "', '" + zone.nameEN + "', " + zone.id + "), ";
         }
         else {
           //console.log ('no zones');
