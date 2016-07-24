@@ -63,33 +63,33 @@ app.post('/webhook/', function (req, res) {
                   getHTTPinfo(sender, value);
                 }
                 else if (matches.length < 6) {
-                  sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
+                 // sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
                   var element = {};
                   for (i = 0; i < matches.length; i++) {
                     
                     element = {
-                      buttons: [{
                         type: "web_url",
                         url: "http://bbc.com",
                         title: matches[i].nameFull
-                      }]
+  
                     };
                     elements.push(element);
                   }
                   var messageData = {
-                      recipient: {
-                        id: sender
-                      },
-                      message: {
-                        attachment: {
-                          type: "template",
-                          payload: {
-                            template_type: "generic",
-                            elements: elements
-                          }
+                    recipient:{
+                      id: sender
+                    },
+                    message:{
+                      attachment:{
+                        type:template,
+                        payload:{
+                          template_type:button,
+                          text:"pasirinkite is zemiau esanciu stoteliu",
+                          buttons:elements
                         }
                       }
-                    };  
+                    }
+                  };  
                   callSendAPI(messageData);
                 }
                 else {
