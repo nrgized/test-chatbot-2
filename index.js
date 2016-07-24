@@ -40,6 +40,8 @@ app.post('/webhook/', function (req, res) {
                 var matches = [];
                 // check for matching zones
                 var value = text.substring(1, 200);
+                var elements = [];
+                
                 for (i = 0; i < zones.length; i++) {
                   if (zones[i].nameEN.indexOf(value) > 0)
                   { 
@@ -62,6 +64,33 @@ app.post('/webhook/', function (req, res) {
                 }
                 else if (matches.length < 6) {
                   sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
+                  var element = {};
+                  for (i = 0; i < matches.length; i++) {
+                    
+                    element = {
+                      buttons: [{
+                        type: "web_url",
+                        url: car.bookUrl,
+                        title: matches[i].nameFull
+                      }]
+                    };
+                    elements.push(element);
+                  }
+                  var messageData = {
+                      recipient: {
+                        id: sender
+                      },
+                      message: {
+                        attachment: {
+                          type: "template",
+                          payload: {
+                            template_type: "generic",
+                            elements: elements
+                          }
+                        }
+                      }
+                    };  
+                  callSendAPI(messageData);
                 }
                 else {
                   sendTextMessage(sender, "stoteliu rast per daug. patisklinkite paieska");
@@ -69,8 +98,8 @@ app.post('/webhook/', function (req, res) {
 
 
                 for (i = 0; i < matches.length; i++) {
-                  console.log(matches[i].id);
-                  sendTextMessage(sender, "match " + matches[i].id);
+                  //console.log(matches[i].id);
+                  //sendTextMessage(sender, "match " + matches[i].id);
                 }
                // console.log(matches[0].nameFull);
             continue
@@ -375,6 +404,11 @@ function sendGenericMessage(recipientId) {
   };  
   callSendAPI(messageData);
 };
+
+
+
+
+
 
 
 app.listen(app.get('port'), function() {
