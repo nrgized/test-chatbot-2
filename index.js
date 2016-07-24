@@ -40,7 +40,7 @@ app.post('/webhook/', function (req, res) {
                 var matches = [];
                 // check for matching zones
                 var value = text.substring(1, 200);
-                var elements = [];
+                
                 
                 for (i = 0; i < zones.length; i++) {
                   if (zones[i].nameEN.indexOf(value) > 0)
@@ -64,16 +64,15 @@ app.post('/webhook/', function (req, res) {
                 }
                 else if (matches.length < 6) {
                  // sendTextMessage(sender, "pasirinkite is zemiau esanciu stoteliu");
-                  
+                  var buttons = [];
                   for (i = 0; i < matches.length; i++) {
-                    var element = {};
-                    element = {
+                    var button = {};
+                    button = {
                       "type":"postback",
                       "title": "111",
                       "payload":"USER_DEFINED_PAYLOAD"
-  
                     };
-                    elements.push(element);
+                    buttons.push(button);
                   };
                   var messageData = {
                     "recipient":{
@@ -85,7 +84,7 @@ app.post('/webhook/', function (req, res) {
                         "payload":{
                           "template_type":"button",
                           "text":"What do you want to do next?",
-                          "buttons": elements
+                          "buttons": buttons
                         }
                       }
                     }
