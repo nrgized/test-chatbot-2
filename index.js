@@ -76,9 +76,9 @@ app.post('/webhook/', function (req, res) {
                         "payload":"USER_DEFINED_PAYLOAD"
                       }
                     ];
-                  var button = {};
+               //var button = {};
                //   for (i = 0; i < matches.length; i++) {
-                    button = {
+                    var button = {
                         "type":"web_url",
                         "url":"https://petersapparel.parseapp.com",
                         "title":"Show Website"
