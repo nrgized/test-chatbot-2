@@ -77,14 +77,14 @@ app.post('/webhook/', function (req, res) {
                       }
                     ];
                //var button = {};
-               for (i = 0; i < matches.length; i++) {
+               //for (i = 0; i < matches.length; i++) {
                     var button = {
                         "type":"web_url",
                         "url":"https://petersapparel.parseapp.com",
                         "title":"Show Website"
                     }
                     buttons.push(button);
-               };
+               //};
                   var messageData = {
                     "recipient":{
                       "id": sender
