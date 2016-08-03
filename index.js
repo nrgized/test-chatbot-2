@@ -83,7 +83,8 @@ app.post('/webhook/', function (req, res) {
                       url: "https://petersapparel.parseapp.com",
                       title: "Show Website"
                     }
-                    //buttons.push(button);
+                    buttons.push(button);
+        
                   };
                   var messageData = {
                     "recipient":{
