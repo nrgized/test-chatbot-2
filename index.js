@@ -160,9 +160,9 @@ function getStopsData() {
         var script = $('script:contains("var opts")').html();
         script = script.substring(script.indexOf("var opts = {") + 13);
         script = script.substring(0, script.indexOf(";") -1);
-        script = unescape(script);
+        //script = unescape(script);
         var opts = {};
-        opts =  script;
+        opts =  JSON.parse(script);;
         console.log(opts);
         
 
