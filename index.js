@@ -162,7 +162,7 @@ function getStopsData() {
         script = script.substring(0, script.indexOf(";") -1);
         script = script.replace(/\\\//g, "/"); 
         var opts = {};
-        opts =  JSON.parse(script);;
+        opts =  JSON.parse(script);
         console.log(opts);
         
 
