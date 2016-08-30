@@ -156,14 +156,10 @@ function getStopsData() {
       // parse html
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
-        var scripts = {};
-        var i = 0;
-        $( "script" ).each(function(i, elem) {
-           var script = $(this).find( "var opts" );
-           console.log(script);
-           i = i + 1;
-           console.log(i);
-        });
+
+        var script = $('script:contains("var opts")').html();
+        console.log(script);
+        
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
