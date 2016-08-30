@@ -158,11 +158,12 @@ function getStopsData() {
       $ = cheerio.load(body);
 
         var script = $('script:contains("var opts")').html();
-        script = script.substring(script.indexOf("var opts = {") + 1);
+        script = script.substring(script.indexOf("var opts = {") + 13);
         script = script.substring(0, script.indexOf(";") -1);
+        script = unescape(script);
         var opts = {};
         opts =  script;
-        console.log(script);
+        console.log(opts);
         
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
