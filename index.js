@@ -157,9 +157,12 @@ function getStopsData() {
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
         var scripts = {};
+        var i = 0;
         $( "script" ).each(function(i, elem) {
-           var script = $(this).text();
+           var script = $(this).find( "var opts" );
            console.log(script);
+           i = i + 1;
+           console.log(i);
         });
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
