@@ -160,7 +160,7 @@ function getStopsData() {
         $( "script" ).each(function(i, elem) {
            var script = $(this);
            console.log(script);
-        }
+        });
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
