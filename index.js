@@ -153,11 +153,15 @@ function getStopsData() {
 
       console.log('http success');
 
-      // parse html to json
+      // parse html
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
-      //var zones = [];
-      var queryStringValues = ""; 
+        var scripts = {};
+        $( "script" ).each(function(i, elem) {
+           var script = $(this);
+           console.log(script);
+        }
+
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
         if($(this).find('.zone-details').length != 0)  {
