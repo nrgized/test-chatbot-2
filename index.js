@@ -158,7 +158,7 @@ function getStopsData() {
       $ = cheerio.load(body);
         var scripts = {};
         $( "script" ).each(function(i, elem) {
-           var script = $(this);
+           var script = $(this).text();
            console.log(script);
         });
 
