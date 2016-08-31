@@ -163,6 +163,7 @@ function getStopsData() {
         //var opts = {};
         //opts =  JSON.parse(script);
         //console.log(opts);
+        console.log(script);
         
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
