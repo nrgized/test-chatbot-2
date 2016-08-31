@@ -161,12 +161,12 @@ function getStopsData() {
         script = script.substring(script.indexOf("var opts = {") + 11);
         script = script.substring(0, script.indexOf(";") -1);
         //script = script.replace(/\\\//g, "/"); 
-        var decoded = unescape(script);
+        //var decoded = unescape(script);
         //var opts = {};
-        //opts =  JSON.parse(script);
+        var opts =  JSON.parse(script);
         //console.log(opts);
         
-        console.log(decoded);
+        console.log(opts);
         
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
