@@ -156,13 +156,14 @@ function getStopsData() {
       // parse html
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
-        var script = $('script:contains("var opts")').html();
+        var script = $('script:contains("var opts")').html().text();
         script = script.substring(script.indexOf("var opts = {") + 11);
         script = script.substring(0, script.indexOf(";") -1);
         script = script.replace(/\\\//g, "/"); 
         //var opts = {};
         //opts =  JSON.parse(script);
         //console.log(opts);
+        
         console.log(script);
         
 
