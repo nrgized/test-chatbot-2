@@ -156,15 +156,17 @@ function getStopsData() {
       // parse html
       var cheerio = require('cheerio'),
       $ = cheerio.load(body);
-        var script = $('script:contains("var opts")').html().text();
+        var script = $('script:contains("var opts")').html();
+        
         script = script.substring(script.indexOf("var opts = {") + 11);
         script = script.substring(0, script.indexOf(";") -1);
+        var decoded = $("<div/>").html(script).text();
         script = script.replace(/\\\//g, "/"); 
         //var opts = {};
         //opts =  JSON.parse(script);
         //console.log(opts);
         
-        console.log(script);
+        console.log(decoded);
         
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
