@@ -164,11 +164,11 @@ function getStopsData() {
         //var decoded = unescape(script);
         //var opts = {};
         var x = script;
-        var r = /\\u([\d\w]{4})/gi;
-        x = x.replace(r, function (match, grp) {
-            return String.fromCharCode(parseInt(grp, 16)); } );
-        x = unescape(x);
-        x = x.replace(/\\\//g, "/"); 
+        //var r = /\\u([\d\w]{4})/gi;
+        //x = x.replace(r, function (match, grp) {
+         //   return String.fromCharCode(parseInt(grp, 16)); } );
+        //x = unescape(x);
+        //x = x.replace(/\\\//g, "/"); 
         x = x.replace(/\\n/g, "\\n")  
                .replace(/\\'/g, "\\'")
                .replace(/\\"/g, '\\"')
