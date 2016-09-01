@@ -158,8 +158,8 @@ function getStopsData() {
       $ = cheerio.load(body);
         var script = $('script:contains("var opts")').html();
         
-        script = script.substring(script.indexOf("var opts = {") + 11);
-        script = script.substring(0, script.indexOf(";") -1);
+        script = script.substring(script.indexOf("var opts = {") + 12);
+        script = script.substring(0, script.indexOf(";") -3);
         //script = script.replace(/\\\//g, "/"); 
         //var decoded = unescape(script);
         //var opts = {};
