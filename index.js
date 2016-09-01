@@ -163,9 +163,15 @@ function getStopsData() {
         //script = script.replace(/\\\//g, "/"); 
         //var decoded = unescape(script);
         //var opts = {};
-        var opts =  JSON.parse(script);
+        var x = script;
+        var r = /\\u([\d\w]{4})/gi;
+        x = x.replace(r, function (match, grp) {
+            return String.fromCharCode(parseInt(grp, 16)); } );
+        x = unescape(x);
+        console.log(x);
+        //var opts =  JSON.parse(script);
         //console.log(opts);
-        
+
         console.log(opts);
         
 
