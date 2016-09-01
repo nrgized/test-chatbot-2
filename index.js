@@ -169,9 +169,9 @@ function getStopsData() {
             return String.fromCharCode(parseInt(grp, 16)); } );
         x = unescape(x);
         x = x.replace(/\\\//g, "/"); 
-        console.log(x);
-        //var opts =  JSON.parse(script);
-        //console.log(opts);
+        //console.log(x);
+        var opts =  JSON.parse(x);
+        console.log(opts);
 
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
