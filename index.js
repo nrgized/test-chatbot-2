@@ -169,7 +169,19 @@ function getStopsData() {
             return String.fromCharCode(parseInt(grp, 16)); } );
         x = unescape(x);
         x = x.replace(/\\\//g, "/"); 
-        //console.log(x);
+        x = x.replace(/\\n/g, "\\n")  
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f");
+// remove non-printable and other non-valid JSON chars
+x = x.replace(/[\u0000-\u0019]+/g,""); 
+        
+        
+        
         var opts =  JSON.parse(x);
         console.log(opts);
         
