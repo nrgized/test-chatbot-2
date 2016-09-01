@@ -170,8 +170,9 @@ function getStopsData() {
         x = unescape(x);
         x = x.replace(/\\\//g, "/"); 
         //console.log(x);
-        var opts =  JSON.parse(x);
-        console.log(opts);
+        //var opts =  JSON.parse(x);
+        var asdf = x.zoneslocations[1].id
+        console.log(asdf);
 
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
