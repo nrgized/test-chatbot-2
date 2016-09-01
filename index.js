@@ -158,8 +158,8 @@ function getStopsData() {
       $ = cheerio.load(body);
         var script = $('script:contains("var opts")').html();
         
-        script = script.substring(script.indexOf("var opts = {") + 12);
-        script = script.substring(0, script.indexOf(";") -3);
+        script = script.substring(script.indexOf("var opts = {") + 11);
+        script = script.substring(0, script.indexOf(";"));
         //script = script.replace(/\\\//g, "/"); 
         //var decoded = unescape(script);
         //var opts = {};
@@ -170,10 +170,8 @@ function getStopsData() {
         x = unescape(x);
         x = x.replace(/\\\//g, "/"); 
         //console.log(x);
-        //var opts =  JSON.parse(x);
-        var str = '{ "name": "John Doe", "age": 42 }';
-        var obj = JSON.parse(str);
-        console.log(obj);
+        var opts =  JSON.parse(x);
+        console.log(opts);
         
 
 
