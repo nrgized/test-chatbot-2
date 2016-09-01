@@ -168,12 +168,11 @@ function getStopsData() {
         x = x.replace(r, function (match, grp) {
             return String.fromCharCode(parseInt(grp, 16)); } );
         x = unescape(x);
+        x = x.replace(/\\\//g, "/"); 
         console.log(x);
         //var opts =  JSON.parse(script);
         //console.log(opts);
 
-        console.log(opts);
-        
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
