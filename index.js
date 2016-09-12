@@ -30,6 +30,7 @@ app.post('/webhook/', function (req, res) {
         sender = event.sender.id;
         var UserLat;
         var UserLng;
+        var UserLocation;
 // check if location is sent
 
         if (event.message && event.message.attachments ) {   // need to add another validator
@@ -38,7 +39,8 @@ app.post('/webhook/', function (req, res) {
             sendTextMessage(sender, "location received " + UserLat + UserLng );
             console.log(UserLat);
             console.log(UserLng);
-
+            UserLocation = UserLat + "," + UserLng;
+            getNearestCars(UserLocation);
         }
         
 
@@ -221,7 +223,7 @@ function getStopsData() {
 
 // find nearest car
 
-function getNearestCars() {
+function getNearestCars(UserLocation) {
   var url = 'https://login.citybee.lt/lt/';
   request({
     headers: {
@@ -252,7 +254,7 @@ function getNearestCars() {
 
         var googleAPIurl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=54.669453,25.290577&destinations=Vilnius|Lithuania&mode=walk&language=en-EN"; 
         var googleAPIkey = "AIzaSyBi5yJFId0hOqgw-_gw2R-SQJtqf3zE2hU";
-        var Origin = UserLat + "," + UserLng;
+        var Origin = UserLocation;
         var Destinations;
         // loop through carlocations array to generate API url
         for (i = 0; i < carlocations.length; i++) {
