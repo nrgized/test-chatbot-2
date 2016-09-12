@@ -200,11 +200,12 @@ function getStopsData() {
         else {
           //console.log ('no zones');
         }
-  */      
+   
 
       });
       console.log ('end of loop');
 
+*/
         
     } else {
         // http request failing
