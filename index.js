@@ -264,10 +264,28 @@ function getNearestCars(UserLocation) {
           Destinations += "|";
         }
         Destinations = Destinations.substring(0, Destinations.lastIndexOf("|"));
+        // googleAPI distance matrix call
+        var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + Origin + 'destinations=' + Destinations + 'mode=walk&language=en-EN';
+        console.log (url);
+     /*   request({
+          uri: url,
+          method: "POST",
+          timeout: 100000,
+          followRedirect: true,
+          maxRedirects: 30
+        }, function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+            // acction on HTTP request success
+
+            console.log('http success');
+            } else {
+              // http request failing
+            console.error("error on request");
+            console.log('error');
+          }
+        }); */
         // find nearest car
-        console.log(carlocations[0].lat);
-        console.log("ghm");
-        console.log(Destinations);
+
         // loop again through carlocations array to find ID and details by nearest location
 
 
