@@ -37,6 +37,7 @@ app.post('/webhook/', function (req, res) {
                 sendTextMessage(sender, "location received " + location );
             continue
             }
+        }
 
 // end of location check
 
