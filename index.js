@@ -30,7 +30,7 @@ app.post('/webhook/', function (req, res) {
         sender = event.sender.id;
 
 // check if location is sent
-
+/*
         if (event.message && event.message.attachments.type == location) {
             var location = event.message.attachments.payload.coordinates;
             if (text === 'generic') {
@@ -38,7 +38,7 @@ app.post('/webhook/', function (req, res) {
             continue
             }
         }
-
+*/
 // end of location check
 
         if (event.message && event.message.text) {
