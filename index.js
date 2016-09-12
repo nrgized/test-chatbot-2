@@ -283,9 +283,10 @@ function getNearestCars(UserLat, UserLng) {
         // send 3 nearest cars
 
           // form elements
-          var elements = [];
+          var fbelements = [];
+          var fbelement = {};
           for (i = 0; i < 2; i++) {
-            var element = {
+            fbelement = {
                 title: carlocations[i].brand + " " + carlocations[i].model,
                 subtitle: carlocations[i].licensePlate,
                 item_url: carlocations[i].address,               
@@ -300,7 +301,7 @@ function getNearestCars(UserLat, UserLng) {
                   payload: "Payload for first bubble",
                 }],
               };
-              elements.push(element);
+              fbelements.push(fbelement);
           }
 
           // message format
