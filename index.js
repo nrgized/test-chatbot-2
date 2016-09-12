@@ -254,7 +254,7 @@ function getNearestCars(UserLat, UserLng) {
         var OriginLong = UserLng;
         var p = 0.017453292519943295;    // Math.PI / 180
         var c = Math.cos;
-        // loop through carlocations array to add distance
+        // loop through carlocations array calculate and add distance
         for (i = 0; i < carlocations.length; i++) {
           var lat1 = OriginLat;
           var lon1 = OriginLong;
@@ -265,12 +265,22 @@ function getNearestCars(UserLat, UserLng) {
             var a = 0.5 - c((lat2 - lat1) * p)/2 + 
                     c(lat1 * p) * c(lat2 * p) * 
                     (1 - c((lon2 - lon1) * p))/2;
-            carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a)); 
-            console.log(carlocations[i].distance);  
-          
+            carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a));           
         }
-          console.log(carlocations[100].distance);
-        // caluclate distance and add to a
+        // sort carlocations array by distance
+
+        carlocations.sort(function (a, b) {
+          if (a.distance > b.distance) {
+            return 1;
+          }
+          if (a.distance < b.distance) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+
+        console.log(carlocations);
 
 
         // find nearest car
