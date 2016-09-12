@@ -189,7 +189,7 @@ x = x.replace(/[\u0000-\u0019]+/g,"");
      //   var opts =  JSON.parse(x);
     //    console.log(opts);
 
-       console.log(carlocationsString); 
+       console.log(script); 
 
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
