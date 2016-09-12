@@ -28,15 +28,16 @@ app.post('/webhook/', function (req, res) {
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
-        var type = event.message.attachments[0].type;
+        var UserLat;
+        var UserLng;
 // check if location is sent
 
-        if (type == 'location' ) {
-            var location = event.message.attachments[0].payload;
-            // var location = "123";
-            sendTextMessage(sender, "location received " + location );
-            console.log(event.message.attachments[0].payload);
-            console.log(event.message.attachments[0].type);
+        if (event.message && event.message.attachments ) {   // need to add another validator
+            UserLat = event.message.attachments[0].payload.coordinates.lat;
+            UserLng = event.message.attachments[0].payload.coordinates.long;
+            sendTextMessage(sender, "location received " + UserLat + UserLng );
+            console.log(UserLat);
+            console.log(UserLng);
         }
         
 
