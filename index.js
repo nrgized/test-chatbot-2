@@ -267,7 +267,7 @@ function getNearestCars(UserLat, UserLng) {
             carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
           }
         }
-        console.log(carslocations[100].distance);
+        console.log(carlocations[100].distance);
         // caluclate distance and add to a
 
 
