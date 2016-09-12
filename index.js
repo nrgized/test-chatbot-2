@@ -261,7 +261,9 @@ function getNearestCars(UserLocation) {
           Destinations += carlocations[i].lat;
           Destinations += ",";
           Destinations += carlocations[i].lon;
+          Destinations += "|";
         }
+        Destinations = Destinations.substring(0, Destinations.lastIndexOf("|"));
         // find nearest car
         console.log(Destinations);
         // loop again through carlocations array to find ID and details by nearest location
