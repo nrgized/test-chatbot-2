@@ -315,7 +315,7 @@ function getNearestCars(UserLat, UserLng) {
                 type: "template",
                 payload: {
                   template_type: "generic",
-                  elements: elements
+                  elements: fbelements
                 }
               }
             }
