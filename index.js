@@ -255,7 +255,7 @@ function getNearestCars(UserLocation) {
         var googleAPIurl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=54.669453,25.290577&destinations=Vilnius|Lithuania&mode=walk&language=en-EN"; 
         var googleAPIkey = "AIzaSyBi5yJFId0hOqgw-_gw2R-SQJtqf3zE2hU";
         var Origin = UserLocation;
-        var Destinations;
+        var Destinations = "";
         // loop through carlocations array to generate API url
         for (i = 0; i < carlocations.length; i++) {
           Destinations += carlocations[i].lat;
