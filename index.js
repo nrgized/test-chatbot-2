@@ -265,6 +265,8 @@ function getNearestCars(UserLocation) {
         }
         Destinations = Destinations.substring(0, Destinations.lastIndexOf("|"));
         // find nearest car
+        console.log(carlocations[0].lat);
+        console.log("ghm");
         console.log(Destinations);
         // loop again through carlocations array to find ID and details by nearest location
 
