@@ -38,6 +38,7 @@ app.post('/webhook/', function (req, res) {
             sendTextMessage(sender, "location received " + UserLat + UserLng );
             console.log(UserLat);
             console.log(UserLng);
+
         }
         
 
@@ -217,6 +218,62 @@ function getStopsData() {
   }); 
 
 }
+
+// find nearest car
+
+function getNearestCars() {
+  var url = 'https://login.citybee.lt/lt/';
+  request({
+    headers: {
+      'Cookie': 'PHPSESSID=7jr278b6p6t2dssg9orisikd80; device_view=full; BCSI-CS-97976de0be87e764=2; BIGipServerglosC-proxyVIP-bc-RBB-web_gdcsfscs05-55_8050_pool=3242406179.29215.0000; _ga=GA1.2.500491733.1468570414; BCSI-CS-b933f65a4f518259=2; BIGipServerSlough-proxyVIP-bc-RBB-web-SLGSFSCS105-155_8050_pool=3778638102.29215.0000; __utmt=1; __utma=269912044.500491733.1468570414.1468570425.1468587689.2; __utmb=269912044.4.10.1468587689; __utmc=269912044; __utmz=269912044.1468587689.2.2.utmcsr=citybee.lt|utmccn=(referral)|utmcmd=referral|utmcct=/lt/'
+    },
+    uri: url,
+    method: "POST",
+    timeout: 100000,
+    followRedirect: true,
+    maxRedirects: 30
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      // acction on HTTP request success
+
+      console.log('http success');
+
+      // parse html
+      var cheerio = require('cheerio'),
+      $ = cheerio.load(body);
+        var script = $('script:contains("var opts")').html();
+        
+        script = script.substring(script.indexOf("var opts = {") + 11);
+        script = script.substring(0, script.indexOf(";"));
+        var carlocationsString = script.substring(script.indexOf("carslocations: [") + 14);
+        carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf("bicycleZonesLocations"));
+        carlocationsString = carlocationsString.substring(0, carlocationsString.lastIndexOf(","));
+        var carlocations = JSON.parse(carlocationsString);
+
+        var googleAPIurl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=54.669453,25.290577&destinations=Vilnius|Lithuania&mode=walk&language=en-EN"; 
+        var googleAPIkey = "AIzaSyBi5yJFId0hOqgw-_gw2R-SQJtqf3zE2hU";
+        var Origin = UserLat + "," + UserLng;
+        var Destinations;
+        // loop through carlocations array to generate API url
+        for (i = 0; i < carlocations.length; i++) {
+          Destinations += carslocations[i].lat;
+          Destinations += ",";
+          Destinations += carslocations[i].lon;
+        }
+        // find nearest car
+        console.log(Destinations);
+        // loop again through carlocations array to find ID and details by nearest location
+
+
+    } else {
+        // http request failing
+      console.error("error on request");
+      console.log('error');
+    }
+  }); 
+
+}
+
  
 
 
