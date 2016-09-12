@@ -161,7 +161,9 @@ function getStopsData() {
         script = script.substring(script.indexOf("var opts = {") + 11);
         script = script.substring(0, script.indexOf(";"));
         var carlocationsString = script.substring(script.indexOf("carslocations: [") + 14);
-        carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf(", bicycleZonesLocations"));
+        carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf("bicycleZonesLocations"));
+        carlocationsString = carlocationsString.substring(0, carlocationsString.lastindexOf(","));
+        
       //  var carlocations = JSON.parse(carlocationsString);
 
         //script = script.replace(/\\\//g, "/"); 
