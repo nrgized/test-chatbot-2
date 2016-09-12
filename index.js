@@ -258,9 +258,9 @@ function getNearestCars(UserLocation) {
         var Destinations;
         // loop through carlocations array to generate API url
         for (i = 0; i < carlocations.length; i++) {
-          Destinations += carslocations[i].lat;
+          Destinations += carlocations[i].lat;
           Destinations += ",";
-          Destinations += carslocations[i].lon;
+          Destinations += carlocations[i].lon;
         }
         // find nearest car
         console.log(Destinations);
