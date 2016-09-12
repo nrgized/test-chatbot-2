@@ -28,6 +28,18 @@ app.post('/webhook/', function (req, res) {
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
+
+// check if location is sent
+
+        if (event.message && event.message.attachments.type == location) {
+            var location = event.message.attachments.payload.coordinates;
+            if (text === 'generic') {
+                sendTextMessage(sender, "location received " + location );
+            continue
+            }
+
+// end of location check
+
         if (event.message && event.message.text) {
             text = event.message.text;
             text = text.toLowerCase();
@@ -163,37 +175,13 @@ function getStopsData() {
         var carlocationsString = script.substring(script.indexOf("carslocations: [") + 14);
         carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf("bicycleZonesLocations"));
         carlocationsString = carlocationsString.substring(0, carlocationsString.lastIndexOf(","));
-        
-       var carlocations = JSON.parse(carlocationsString);
+        var carlocations = JSON.parse(carlocationsString);
+       //console.log(carlocations[300].lat); 
 
-        //script = script.replace(/\\\//g, "/"); 
-        //var decoded = unescape(script);
-        //var opts = {};
-        var x = script;
-        //var r = /\\u([\d\w]{4})/gi;
-        //x = x.replace(r, function (match, grp) {
-         //   return String.fromCharCode(parseInt(grp, 16)); } );
-        //x = unescape(x);
-        //x = x.replace(/\\\//g, "/"); 
-        x = x.replace(/\\n/g, "\\n")  
-               .replace(/\\'/g, "\\'")
-               .replace(/\\"/g, '\\"')
-               .replace(/\\&/g, "\\&")
-               .replace(/\\r/g, "\\r")
-               .replace(/\\t/g, "\\t")
-               .replace(/\\b/g, "\\b")
-               .replace(/\\f/g, "\\f");
-// remove non-printable and other non-valid JSON chars
-x = x.replace(/[\u0000-\u0019]+/g,""); 
-        
-        
-        
-     //   var opts =  JSON.parse(x);
-    //    console.log(opts);
-
-       console.log(carlocations[300]); 
+      // loop through car locations
 
 
+/* loop through zones
       $( "ul.zones-list" ).children().each(function(i, elem) {
         var zone = {};
         if($(this).find('.zone-details').length != 0)  {
@@ -211,7 +199,7 @@ x = x.replace(/[\u0000-\u0019]+/g,"");
         else {
           //console.log ('no zones');
         }
-        
+  */      
 
       });
       console.log ('end of loop');
