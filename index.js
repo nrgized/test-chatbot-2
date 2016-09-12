@@ -292,7 +292,7 @@ function getNearestCars(UserLat, UserLng) {
                 image_url: carlocations[i].address,
                 buttons: [{
                   type: "web_url",
-                  url: car.bookUrl,
+                  url: carlocations[i].link,
                   title: "Rezervuoti"
                 }, {
                   type: "postback",
