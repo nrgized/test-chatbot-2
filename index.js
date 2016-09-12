@@ -39,8 +39,7 @@ app.post('/webhook/', function (req, res) {
             sendTextMessage(sender, "location received " + UserLat + UserLng );
             console.log(UserLat);
             console.log(UserLng);
-            UserLocation = UserLat + "," + UserLng;
-            getNearestCars(UserLocation);
+            getNearestCars(UserLat, UserLng);
         }
         
 
@@ -223,7 +222,7 @@ function getStopsData() {
 
 // find nearest car
 
-function getNearestCars(UserLocation) {
+function getNearestCars(UserLat, UserLng) {
   var url = 'https://login.citybee.lt/lt/';
   request({
     headers: {
@@ -251,39 +250,27 @@ function getNearestCars(UserLocation) {
         carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf("bicycleZonesLocations"));
         carlocationsString = carlocationsString.substring(0, carlocationsString.lastIndexOf(","));
         var carlocations = JSON.parse(carlocationsString);
-
-        var googleAPIurl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=54.669453,25.290577&destinations=Vilnius|Lithuania&mode=walk&language=en-EN"; 
-        var googleAPIkey = "AIzaSyBi5yJFId0hOqgw-_gw2R-SQJtqf3zE2hU";
-        var Origin = UserLocation;
-        var Destinations = "";
-        // loop through carlocations array to generate API url
+        var OriginLat = UserLat;
+        var OriginLong = UserLng;
+        var p = 0.017453292519943295;    // Math.PI / 180
+        var c = Math.cos;
+        // loop through carlocations array to add distance
         for (i = 0; i < carlocations.length; i++) {
-          Destinations += carlocations[i].lat;
-          Destinations += ",";
-          Destinations += carlocations[i].lon;
-          Destinations += "|";
-        }
-        Destinations = Destinations.substring(0, Destinations.lastIndexOf("|"));
-        // googleAPI distance matrix call
-        var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + Origin + '&destinations=' + Destinations + '&mode=walk&language=en-EN&key=' + googleAPIkey;
-        console.log (url);
-     /*   request({
-          uri: url,
-          method: "POST",
-          timeout: 100000,
-          followRedirect: true,
-          maxRedirects: 30
-        }, function (error, response, body) {
-          if (!error && response.statusCode == 200) {
-            // acction on HTTP request success
-
-            console.log('http success');
-            } else {
-              // http request failing
-            console.error("error on request");
-            console.log('error');
+          var lat1 = OriginLat;
+          var lon1 = OriginLong;
+          var lat2 = carlocations[i].lat;
+          var lon2 = carlocations[i].lon;
+          function distance(lat1, lon1, lat2, lon2) {
+            var a = 0.5 - c((lat2 - lat1) * p)/2 + 
+                    c(lat1 * p) * c(lat2 * p) * 
+                    (1 - c((lon2 - lon1) * p))/2;
+            carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
           }
-        }); */
+        }
+        console.log(carslocations[100].distance);
+        // caluclate distance and add to a
+
+
         // find nearest car
 
         // loop again through carlocations array to find ID and details by nearest location
