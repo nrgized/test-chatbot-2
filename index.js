@@ -28,10 +28,10 @@ app.post('/webhook/', function (req, res) {
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
-
+        var type = event.message.attachments[0].type;
 // check if location is sent
 
-        if (event.message && event.message.attachments) {
+        if (event.message && type = 'location' ) {
             var location = event.message.attachments[0].payload;
             // var location = "123";
             sendTextMessage(sender, "location received " + location );
