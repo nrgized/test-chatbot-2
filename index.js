@@ -280,12 +280,46 @@ function getNearestCars(UserLat, UserLng) {
           return 0;
         });
 
-        console.log(carlocations);
+        // send 3 nearest cars
 
+          // form elements
+          var elements = [];
+          for (i = 0; i < 2; i++) {
+            var element = {
+                title: carlocations[i].brand + " " + carlocations[i].model,
+                subtitle: carlocations[i].licensePlate,
+                item_url: carlocations[i].link,               
+                image_url: carlocations[i].icon,
+                buttons: [{
+                  type: "web_url",
+                  url: carlocations[i].link,
+                  title: "Rezervuoti"
+                }, {
+                  type: "postback",
+                  title: "Call Postback",
+                  payload: "Payload for first bubble",
+                }],
+              };
+              elements.push(element);
+          }
 
-        // find nearest car
+          // message format
 
-        // loop again through carlocations array to find ID and details by nearest location
+          var messageData = {
+            recipient: {
+              id: sender
+            },
+            message: {
+              attachment: {
+                type: "template",
+                payload: {
+                  template_type: "generic",
+                  elements: elements
+                }
+              }
+            }
+          };  
+          callSendAPI(messageData);
 
 
     } else {
