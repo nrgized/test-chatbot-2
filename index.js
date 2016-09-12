@@ -164,7 +164,7 @@ function getStopsData() {
         carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf("bicycleZonesLocations"));
         carlocationsString = carlocationsString.substring(0, carlocationsString.lastIndexOf(","));
         
-      //  var carlocations = JSON.parse(carlocationsString);
+       var carlocations = JSON.parse(carlocationsString);
 
         //script = script.replace(/\\\//g, "/"); 
         //var decoded = unescape(script);
@@ -191,7 +191,7 @@ x = x.replace(/[\u0000-\u0019]+/g,"");
      //   var opts =  JSON.parse(x);
     //    console.log(opts);
 
-       console.log(carlocationsString); 
+       console.log(carlocations); 
 
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
