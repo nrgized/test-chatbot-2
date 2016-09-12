@@ -265,11 +265,10 @@ function getNearestCars(UserLat, UserLng) {
                     c(lat1 * p) * c(lat2 * p) * 
                     (1 - c((lon2 - lon1) * p))/2;
             carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a)); 
-            console.log(carlocations[i].distance);
+            console.log(carlocations[i].distance);  
+          }
           distance(lat1, lon1, lat2, lon2);
-          
-        }
-        console.log(carlocations[100].distance);
+          console.log(carlocations[100].distance);
         // caluclate distance and add to a
 
 
