@@ -36,6 +36,7 @@ app.post('/webhook/', function (req, res) {
             var location = "123";
             sendTextMessage(sender, "location received " + location );
             console.log(event.message.attachments[0].payload);
+            console.log(event.message.attachments[0].type);
         }
         
 
