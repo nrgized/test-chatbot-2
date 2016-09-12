@@ -283,17 +283,16 @@ function getNearestCars(UserLat, UserLng) {
         // send 3 nearest cars
 
           // form elements
-          var fbelements = [];
-          var fbelement = {};
+          var elements = [];
           for (i = 0; i < 2; i++) {
-            fbelement = {
+            var element = {
                 title: carlocations[i].brand + " " + carlocations[i].model,
                 subtitle: carlocations[i].licensePlate,
-                item_url: carlocations[i].address,               
-                image_url: carlocations[i].icon,
+                item_url: carlocations[i].link,               
+                image_url: carlocations[i].address,
                 buttons: [{
                   type: "web_url",
-                  url: carlocations[i].link,
+                  url: car.bookUrl,
                   title: "Rezervuoti"
                 }, {
                   type: "postback",
@@ -301,9 +300,9 @@ function getNearestCars(UserLat, UserLng) {
                   payload: "Payload for first bubble",
                 }],
               };
-              fbelements.push(fbelement);
+              elements.push(element);
           }
-
+          console.log(elements);
           // message format
 
           var messageData = {
@@ -315,12 +314,12 @@ function getNearestCars(UserLat, UserLng) {
                 type: "template",
                 payload: {
                   template_type: "generic",
-                  elements: fbelements
+                  elements: elements
                 }
               }
             }
           };  
-          callSendAPI(messageData);
+          //callSendAPI(messageData);
 
 
     } else {
