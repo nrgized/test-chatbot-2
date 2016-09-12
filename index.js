@@ -162,7 +162,7 @@ function getStopsData() {
         script = script.substring(0, script.indexOf(";"));
         var carlocationsString = script.substring(script.indexOf("carlocations: [") + 14);
         carlocationsString = carlocationsString.substring(0, script.indexOf("]"));
-        var carlocations = JSON.parse(carlocationsString);
+      //  var carlocations = JSON.parse(carlocationsString);
 
         //script = script.replace(/\\\//g, "/"); 
         //var decoded = unescape(script);
@@ -188,8 +188,8 @@ x = x.replace(/[\u0000-\u0019]+/g,"");
         
      //   var opts =  JSON.parse(x);
     //    console.log(opts);
-        
-       console.log(carlocations); 
+
+       console.log(carlocationsString); 
 
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
