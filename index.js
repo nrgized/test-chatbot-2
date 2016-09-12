@@ -31,7 +31,7 @@ app.post('/webhook/', function (req, res) {
 
 // check if location is sent
 
-        if (event.message && event.message.attachments.type == 'location') {
+        if (event.message && event.message.attachments) {
             var location = event.message.attachments.payload.coordinates;
             //var location = "123";
             sendTextMessage(sender, "location received " + location );
