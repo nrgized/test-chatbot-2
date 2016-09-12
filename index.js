@@ -284,8 +284,9 @@ function getNearestCars(UserLat, UserLng) {
 
           // form elements
           var elements = [];
-          for (i = 0; i < 2; i++) {
-            var element = {
+          var element = {};
+          for (i = 0; i < 3; i++) {
+            element = {
                 title: carlocations[i].brand + " " + carlocations[i].model,
                 subtitle: carlocations[i].licensePlate,
                 item_url: carlocations[i].link,               
@@ -301,6 +302,7 @@ function getNearestCars(UserLat, UserLng) {
                 }],
               };
               elements.push(element);
+            element = "";
           }
           console.log(elements);
           // message format
