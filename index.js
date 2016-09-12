@@ -160,6 +160,10 @@ function getStopsData() {
         
         script = script.substring(script.indexOf("var opts = {") + 11);
         script = script.substring(0, script.indexOf(";"));
+        var carlocationsString = script.substring(script.indexOf("carlocations: [") + 14);
+        carlocationsString = carlocationsString.substring(0, script.indexOf("]"));
+        var carlocations = JSON.parse(carlocationsString);
+
         //script = script.replace(/\\\//g, "/"); 
         //var decoded = unescape(script);
         //var opts = {};
@@ -182,9 +186,10 @@ x = x.replace(/[\u0000-\u0019]+/g,"");
         
         
         
-        var opts =  JSON.parse(x);
-        console.log(opts);
+     //   var opts =  JSON.parse(x);
+    //    console.log(opts);
         
+       console.log(carlocations); 
 
 
       $( "ul.zones-list" ).children().each(function(i, elem) {
@@ -208,35 +213,7 @@ x = x.replace(/[\u0000-\u0019]+/g,"");
 
       });
       console.log ('end of loop');
-     /* 
-      // SQL query
-      
-      //console.log (queryString);
-      queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
-      queryStringValues = queryStringValues.substring(0, queryStringValues.length - 1);
-      
-      // var queryString = 'INSERT INTO stop_names (index, nameLT, nameEN, id) VALUES ' + queryStringValues + ';';
-      //var queryString = "INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES (19, 'asdfa', 'dddd', 19), (20, 'asdfa', 'dddd', 20);"
-      //var queryString = "DELETE FROM stop_names";
-      //var queryString = "INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES " + queryStringValues + ";"
-      var queryString = "SELECT * FROM stop_names";
-      console.log (queryString);
-    
-      var mysql = require('mysql');
-      var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-      
-      connection.connect();
-      //connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES (9, 'asdfa', 'dddd');', function(err, rows, fields) {
-      //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`) VALUES (12, 'asdfa', 'dddd');", function(err, rows, fields) {
-      //connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
-      //connection.query('DELETE FROM stop_names;', function(err, rows, fields) {
-      //connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`, `id`) VALUES " + queryStringValues + ";", function(err, rows, fields) {
-      connection.query(queryString, function(err, rows, fields) {
-      if (err) throw err;
-      console.log(rows);
-      });
-      connection.end();
-    */
+
         
     } else {
         // http request failing
@@ -245,22 +222,6 @@ x = x.replace(/[\u0000-\u0019]+/g,"");
     }
   }); 
 
-  // connect to DB
-/*
-  var mysql = require('mysql');
-  var connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-
-  connection.connect();
-//connection.query('INSERT INTO `qll8yu61wian72aj`.`stop_names` (`index`, `nameLT`, `nameEN`) VALUES (9, 'asdfa', 'dddd');', function(err, rows, fields) {
-//connection.query("INSERT INTO `stop_names` (`index`, `nameLT`, `nameEN`) VALUES (12, 'asdfa', 'dddd');", function(err, rows, fields) {
-   connection.query('SELECT * FROM stop_names;', function(err, rows, fields) {
-    if (err) throw err;
-
-    console.log(rows);
-  });
-
-  connection.end();
-*/
 }
  
 
