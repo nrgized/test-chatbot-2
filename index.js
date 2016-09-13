@@ -349,7 +349,7 @@ function getNearestCars(UserLat, UserLng) {
           for (i = 0; i < 5; i++) {
             element = {
                 title: carlocations[i].brand + " " + carlocations[i].model + " " + carlocations[i].licensePlate ,
-                subtitle: carlocations[i].address.substring(0, carlocations[i].address.indexOf(",")) + ' (' carlocations[i].walkdistance + ' )',
+                subtitle: carlocations[i].address.substring(0, carlocations[i].address.indexOf(",")) + ' (' + carlocations[i].walkdistance + ' )',
                 item_url: 'https://login.citybee.lt/mobile/lt/reservation/create/' + carlocations[i].id,            
                 image_url: carlocations[i].icon,
                 buttons: [{
