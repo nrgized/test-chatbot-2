@@ -317,7 +317,7 @@ function getNearestCars(UserLat, UserLng) {
             // add walking distance to 10 nearest stations
 
             for (i = 0; i < 10; i++) {
-              carlocations[i].walkdistance = details.rows[0].elements[i].duration.text
+              carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text
             }
 
 
