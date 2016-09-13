@@ -309,7 +309,7 @@ function getNearestCars(UserLat, UserLng) {
             // acction on HTTP request success
 
             console.log('Google API http success');
-         //   console.log(body);
+            console.log(body);
 
 
           } else {
