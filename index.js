@@ -324,7 +324,7 @@ function getNearestCars(UserLat, UserLng) {
 
           messageData.message.attachment.payload.elements = elements;  
           console.log(JSON.stringify(messageData, null, 4));
-        //  callSendAPI(messageData);
+          callSendAPI(messageData);
 
 
     } else {
