@@ -287,8 +287,8 @@ function getNearestCars(UserLat, UserLng) {
           var element = {};
           for (i = 0; i < 3; i++) {
             element = {
-                title: carlocations[i].brand + " " + carlocations[i].model,
-                subtitle: carlocations[i].licensePlate,
+                title: carlocations[i].brand + " " + carlocations[i].model + " " + carlocations[i].licensePlate ,
+                subtitle: carlocations[i].address,
                 item_url: carlocations[i].link,               
                 image_url: carlocations[i].icon,
                 buttons: [{
