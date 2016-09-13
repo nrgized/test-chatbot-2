@@ -280,12 +280,30 @@ function getNearestCars(UserLat, UserLng) {
           return 0;
         });
 
+        // run 10 nearest cars through google maps API to identify walking distance
+        var googleAPIkey = "AIzaSyBi5yJFId0hOqgw-_gw2R-SQJtqf3zE2hU";
+        var Origin = OriginLat + "," + OriginLong;
+        var Destinations = "";
+        // loop through carlocations array to generate API url
+        for (i = 0; i < 10; i++) {
+          Destinations += carlocations[i].lat;
+          Destinations += ",";
+          Destinations += carlocations[i].lon;
+          Destinations += "|";
+        }
+        Destinations = Destinations.substring(0, Destinations.lastIndexOf("|"));
+        // googleAPI distance matrix call
+        var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + Origin + 'destinations=' + Destinations + 'mode=walk&language=en-EN&key=' + googleAPIkey;
+        console.log (url);
+
+
+
         // send 3 nearest cars
 
           // form elements
           var elements = [];
           var element = {};
-          for (i = 0; i < 3; i++) {
+          for (i = 0; i < 5; i++) {
             element = {
                 title: carlocations[i].brand + " " + carlocations[i].model + " " + carlocations[i].licensePlate ,
                 subtitle: carlocations[i].address.substring(0, carlocations[i].address.indexOf(",")),
@@ -293,7 +311,7 @@ function getNearestCars(UserLat, UserLng) {
                 image_url: carlocations[i].icon,
                 buttons: [{
                   type: "web_url",
-                  url: carlocations[i].link,
+                  url: 'https://login.citybee.lt/mobile/lt/reservation/create/' + carlocations[i].id,    
                   title: "Rezervuoti"
                 }, {
                   type: "postback",
