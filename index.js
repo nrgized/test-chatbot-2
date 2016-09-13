@@ -298,6 +298,7 @@ function getNearestCars(UserLat, UserLng) {
 
           // api Call
         request({
+          headers: {},
           uri: url,
           method: "GET",
           timeout: 100,
@@ -308,7 +309,7 @@ function getNearestCars(UserLat, UserLng) {
             // acction on HTTP request success
 
             console.log('Google API http success');
-            console.log(body);
+         //   console.log(body);
 
 
           } else {
@@ -337,7 +338,7 @@ function getNearestCars(UserLat, UserLng) {
                   title: "Rezervuoti"
                 }, {
                   type: "postback",
-                  title: "Call Postback",
+                  title: "Keliauti",
                   payload: "Payload for first bubble",
                 }],
               };
