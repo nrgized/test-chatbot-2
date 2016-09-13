@@ -295,7 +295,7 @@ function getNearestCars(UserLat, UserLng) {
         }
         Destinations = Destinations.substring(0, Destinations.lastIndexOf("|"));
           // googleAPI distance matrix call
-        var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + Origin + '&destinations=' + Destinations + '&mode=walk&language=lt-LT&key=' + googleAPIkey;
+        var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + Origin + '&destinations=' + Destinations + '&mode=walking&language=lt-LT&key=' + googleAPIkey;
         console.log (url);
 
           // api Call
