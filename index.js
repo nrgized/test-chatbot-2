@@ -322,7 +322,7 @@ function getNearestCars(UserLat, UserLng) {
             }
           };
 
-          messageData.payload.elements = elements;  
+          messageData.message.attachment.payload.elements = elements;  
           console.log(messageData);
         //  callSendAPI(messageData);
 
