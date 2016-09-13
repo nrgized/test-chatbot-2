@@ -321,7 +321,7 @@ function getNearestCars(UserLat, UserLng) {
             }
 
 
-            sendNearestCars();
+            sendNearestCars(Origin);
 
 
 
@@ -332,7 +332,7 @@ function getNearestCars(UserLat, UserLng) {
 
             // send NearestCards Without walking distance
 
-            sendNearestCars();
+            sendNearestCars(Origin);
           }
         }); 
 
@@ -342,7 +342,7 @@ function getNearestCars(UserLat, UserLng) {
 
           // form elements
 
-          function sendNearestCars() {
+          function sendNearestCars(Origin) {
 
           var elements = [];
           var element = {};
@@ -357,9 +357,9 @@ function getNearestCars(UserLat, UserLng) {
                   url: 'https://login.citybee.lt/mobile/lt/reservation/create/' + carlocations[i].id,    
                   title: "Rezervuoti"
                 }, {
-                  type: "postback",
+                  type: "web_url",
+                  url: 'https://www.google.com/maps/dir/' + Origin + '/' + carlocations[i].lat + "," + carlocations[i].lon + '/data=!4m2!4m1!3e2',
                   title: "Keliauti",
-                  payload: "Payload for first bubble",
                 }],
               };
               elements.push(element);
