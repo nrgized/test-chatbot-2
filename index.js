@@ -289,7 +289,7 @@ function getNearestCars(UserLat, UserLng) {
             element = {
                 title: carlocations[i].brand + " " + carlocations[i].model + " " + carlocations[i].licensePlate ,
                 subtitle: carlocations[i].address.substring(0, carlocations[i].address.indexOf(",")),
-                item_url: 'https://login.citybee.lt/mobile/lt/reservation/create/' + carlocations[i].id;              
+                item_url: 'https://login.citybee.lt/mobile/lt/reservation/create/' + carlocations[i].id,            
                 image_url: carlocations[i].icon,
                 buttons: [{
                   type: "web_url",
@@ -323,7 +323,7 @@ function getNearestCars(UserLat, UserLng) {
           };
 
           messageData.message.attachment.payload.elements = elements;  
-          console.log(JSON.stringify(messageData, null, 4));
+          //console.log(JSON.stringify(messageData, null, 4));
           callSendAPI(messageData);
 
 
