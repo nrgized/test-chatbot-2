@@ -322,8 +322,8 @@ function getNearestCars(UserLat, UserLng) {
             }
           };
 
-         // messageData.message.attachment.payload.elements = elements;  
-          console.log(JSON.stringify(messageData, null, 4));
+          messageData.message.attachment.payload.elements = elements;  
+          //console.log(JSON.stringify(messageData, null, 4));
           callSendAPI(messageData);
 
 
@@ -357,10 +357,10 @@ function callSendAPI(messageData) {
         messageId, recipientId);
     } else {
       console.error("Unable to send message.");
-      console.error(response);
-      console.error(error);
+     // console.error(response);
+     // console.error(error);
       var messageData = {}
-      callSendAPI(messageData);
+     // callSendAPI(messageData);
     }
   });  
 }
