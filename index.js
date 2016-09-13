@@ -284,7 +284,7 @@ function getNearestCars(UserLat, UserLng) {
         var googleAPIkey = "AIzaSyBi5yJFId0hOqgw-_gw2R-SQJtqf3zE2hU";
         var Origin = OriginLat + "," + OriginLong;
         var Destinations = "";
-        // loop through carlocations array to generate API url
+          // loop through carlocations array to generate API url
         for (i = 0; i < 10; i++) {
           Destinations += carlocations[i].lat;
           Destinations += ",";
@@ -292,9 +292,31 @@ function getNearestCars(UserLat, UserLng) {
           Destinations += "|";
         }
         Destinations = Destinations.substring(0, Destinations.lastIndexOf("|"));
-        // googleAPI distance matrix call
-        var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + Origin + '&destinations=' + Destinations + '&mode=walk&language=en-EN&key=' + googleAPIkey;
+          // googleAPI distance matrix call
+        var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + Origin + '&destinations=' + Destinations + '&mode=walk&language=lt-LT&key=' + googleAPIkey;
         console.log (url);
+
+          // api Call
+        request({
+          uri: url,
+          method: "POST",
+          timeout: 100,
+          followRedirect: true,
+          maxRedirects: 30
+        }, function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+            // acction on HTTP request success
+
+            console.log('Google API http success');
+            console.log(body);
+
+
+          } else {
+              // http request failing
+            console.error("error on request");
+            console.log('error');
+          }
+        }); 
 
 
 
