@@ -1,9 +1,15 @@
-# Facebook Messenger Bot Skeleton
-Skeleten Application to handle the authentication and webhook requests sent via facebook for new messenger bots.
+Terms and Conditions ("Terms")
 
-This project is developed to work with Heroku with no coding changes required. It implements the standard echo function that is provided by Facebook to provide visual feedback it is working.
+Your access to and use of the Service is conditioned on your acceptance of and compliance with
+these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+By accessing or using the Service you agree to be bound by these Terms. If you disagree
+with any part of the terms then you may not access the Service.
 
-This project is written in Node.js and Express to stay in line with the official Facebook docs and make it easier to use their provided examples.
+Our Service allows you to post, link, store, share and otherwise make available certain information,
+text, graphics, videos, or other material ("Content"). You are responsible for the …
+The Content section is for businesses that allow users to create, edit, share, make content.
+
+If you have any questions about these Terms, please contact us
 
 It has a default Verify Token of `TEST` however this can be changed be setting an environmental variable in heroku of `VERIFY_TOKEN`
 
