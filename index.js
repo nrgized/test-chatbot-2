@@ -290,7 +290,7 @@ function getNearestCars(UserLat, UserLng) {
                 title: carlocations[i].brand + " " + carlocations[i].model,
                 subtitle: carlocations[i].licensePlate,
                 item_url: carlocations[i].link,               
-                image_url: carlocations[i].address,
+                image_url: carlocations[i].icon,
                 buttons: [{
                   type: "web_url",
                   url: carlocations[i].link,
@@ -323,7 +323,7 @@ function getNearestCars(UserLat, UserLng) {
           };
 
           messageData.message.attachment.payload.elements = elements;  
-          //console.log(JSON.stringify(messageData, null, 4));
+          console.log(JSON.stringify(messageData, null, 4));
           callSendAPI(messageData);
 
 
