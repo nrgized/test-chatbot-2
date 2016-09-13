@@ -311,11 +311,12 @@ function getNearestCars(UserLat, UserLng) {
             // acction on HTTP request success
 
             console.log('Google API http success');
-            console.log(body);
-
+            
+            var distanceDetails = JSON.parse(body);
+            console.log(distanceDetails);
             // add walking distance to 10 nearest stations
 
-            var distanceDetails = JSON.parse(body);
+            
 
 
             sendNearestCars();
@@ -324,7 +325,7 @@ function getNearestCars(UserLat, UserLng) {
 
           } else {
               // http request failing
-            console.error("error on request");
+            console.error("error on API request");
             console.log('error');
 
             // send NearestCards Without walking distance
