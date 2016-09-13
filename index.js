@@ -299,10 +299,10 @@ function getNearestCars(UserLat, UserLng) {
           // api Call
         request({
           uri: url,
-          method: "POST",
+          method: "GET",
           timeout: 100,
           followRedirect: true,
-          maxRedirects: 30
+          maxRedirects: 10
         }, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             // acction on HTTP request success
