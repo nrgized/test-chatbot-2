@@ -36,7 +36,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.attachments ) {   // need to add another validator
             UserLat = event.message.attachments[0].payload.coordinates.lat;
             UserLng = event.message.attachments[0].payload.coordinates.long;
-            sendTextMessage(sender, "location received " + UserLat + UserLng );
+            sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
             console.log(UserLat);
             console.log(UserLng);
             getNearestCars(UserLat, UserLng);
@@ -301,7 +301,7 @@ function getNearestCars(UserLat, UserLng) {
           headers: {},
           uri: url,
           method: "GET",
-          timeout: 100,
+          timeout: 10000,
           followRedirect: true,
           maxRedirects: 10
         }, function (error, response, body) {
