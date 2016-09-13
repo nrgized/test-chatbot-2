@@ -265,7 +265,9 @@ function getNearestCars(UserLat, UserLng) {
             var a = 0.5 - c((lat2 - lat1) * p)/2 + 
                     c(lat1 * p) * c(lat2 * p) * 
                     (1 - c((lon2 - lon1) * p))/2;
-            carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a));           
+            carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a));
+            carlocations[i].walkdistance = "";
+
         }
         // sort carlocations array by distance
 
@@ -311,11 +313,23 @@ function getNearestCars(UserLat, UserLng) {
             console.log('Google API http success');
             console.log(body);
 
+            // add walking distance to 10 nearest stations
+
+            var distanceDetails = JSON.parse(body);
+
+
+            sendNearestCars();
+
+
 
           } else {
               // http request failing
             console.error("error on request");
             console.log('error');
+
+            // send NearestCards Without walking distance
+
+            sendNearestCars();
           }
         }); 
 
@@ -324,6 +338,9 @@ function getNearestCars(UserLat, UserLng) {
         // send 3 nearest cars
 
           // form elements
+
+          function sendNearestCars() {
+
           var elements = [];
           var element = {};
           for (i = 0; i < 5; i++) {
@@ -366,7 +383,7 @@ function getNearestCars(UserLat, UserLng) {
           messageData.message.attachment.payload.elements = elements;  
           //console.log(JSON.stringify(messageData, null, 4));
           callSendAPI(messageData);
-
+        }
 
     } else {
         // http request failing
