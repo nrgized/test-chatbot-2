@@ -304,7 +304,7 @@ function getNearestCars(UserLat, UserLng) {
               elements.push(element);
             element = "";
           }
-          console.log(elements);
+          
           // message format
 
           var messageData = {
@@ -316,11 +316,14 @@ function getNearestCars(UserLat, UserLng) {
                 type: "template",
                 payload: {
                   template_type: "generic",
-                  elements: elements[0]
+                  elements: []
                 }
               }
             }
-          };  
+          };
+
+          messageData.payload.elements = elements;  
+          console.log(messageData);
         //  callSendAPI(messageData);
 
 
@@ -431,7 +434,7 @@ function getHTTPinfo(sender, value) {
               }, {
                 type: "postback",
                 title: "Call Postback",
-                payload: "Payload for first bubble",
+                payload: "Payload for first bubble"
               }],
             };
             elements.push(element);
