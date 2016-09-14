@@ -33,7 +33,7 @@ app.post('/webhook/', function (req, res) {
         var UserLocation;
 // check if location is sent
 
-        if (event.message && event.message.attachments ) {   // need to add another validator
+        if (event.message && event.message.attachments[0].payload.coordinates ) {   // need to add another validator
             UserLat = event.message.attachments[0].payload.coordinates.lat;
             UserLng = event.message.attachments[0].payload.coordinates.long;
             sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
