@@ -474,7 +474,7 @@ function changeThreadSettings() {
               "url":"http://petersapparel.parseapp.com/"
             }
           ]
-        };
+        }
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
           console.log('thread_settings set');
