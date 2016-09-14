@@ -455,9 +455,9 @@ function changeThreadSettings() {
         qs: {access_token:app.get('page_access_token')},
         method: 'POST',
         json: {
-          "setting_type" : "call_to_actions",
-          "thread_state" : "existing_thread",
-          "call_to_actions":[
+          setting_type : "call_to_actions",
+          thread_state : "existing_thread",
+          call_to_actions:[
             {
               "type":"postback",
               "title":"Help",
@@ -478,6 +478,8 @@ function changeThreadSettings() {
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
           console.log('thread_settings set');
+          console.log(body);
+          console.log(response);
         }
         if (error) {
             console.log('Error sending thread_settings: ', error);
