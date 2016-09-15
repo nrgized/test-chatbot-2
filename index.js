@@ -48,6 +48,7 @@ app.post('/webhook/', function (req, res) {
                       "quick_replies":[
                         {
                           "content_type":"location",
+                        }
                       ]
                     }
                   }; 
