@@ -44,7 +44,7 @@ app.post('/webhook/', function (req, res) {
                       "id": sender
                     },
                     "message":{
-                      "text":"Pasidalink savo buvimo vieta",
+                      "text":"Pasidalink savo buvimo vieta: ",
                       "quick_replies":[
                         {
                           "content_type": "location",
@@ -59,7 +59,7 @@ app.post('/webhook/', function (req, res) {
         }
 // check if location is sent
 
-        if (event.message && event.message.attachments) {   // need to add another validator
+        if (!isNaN(event.message.attachments[0].payload.coordinates.lat)) {   // need to add another validator
             UserLat = event.message.attachments[0].payload.coordinates.lat;
             UserLng = event.message.attachments[0].payload.coordinates.long;
             sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
