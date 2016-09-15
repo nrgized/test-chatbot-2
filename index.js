@@ -60,14 +60,15 @@ app.post('/webhook/', function (req, res) {
 // check if location is sent
 
         if (event.message && event.message.attachments) {   
-         /* if(atts[0].type === "location"){
+          var att = event.message.attachments;
+          if(Array.isArray(att)){
             UserLat = event.message.attachments[0].payload.coordinates.lat;
             UserLng = event.message.attachments[0].payload.coordinates.long;
             sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
             console.log(UserLat);
             console.log(UserLng);
             getNearestCars(UserLat, UserLng);
-          } */
+          }
         }
       
 
