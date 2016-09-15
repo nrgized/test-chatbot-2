@@ -38,6 +38,28 @@ app.post('/webhook/', function (req, res) {
 
           if (event.postback.payload === 'search') {
             console.log('search');
+
+                  var messageData = {
+                    "recipient":{
+                      "id": sender
+                    },
+                    "message":{
+                      "attachment":{
+                        "type":"template",
+                        "payload":{
+                          "template_type":"button",
+                          "text":"Pasidalink savo buvimo vieta",
+                          "quick_replies":[
+                            {
+                              "content_type":"location",
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }; 
+                  callSendAPI(messageData);
+
           }
 
         }
