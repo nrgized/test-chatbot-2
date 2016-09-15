@@ -47,8 +47,8 @@ app.post('/webhook/', function (req, res) {
                       "text":"Pasidalink savo buvimo vieta: ",
                       "quick_replies":[
                         {
-                          "content_type":"text",
-                          "title":"Green",
+                          "content_type":"location",
+                          "title":"loc",
                           "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN",
                           "image_url":"http://petersfantastichats.com/img/green.png"
                         }
