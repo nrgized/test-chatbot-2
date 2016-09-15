@@ -47,7 +47,7 @@ app.post('/webhook/', function (req, res) {
                       "text":"Pasidalink savo buvimo vieta: ",
                       "quick_replies":[
                         {
-                          "content_type":"location",
+                          "content_type" : "location"
                         }
                       ]
                     }
