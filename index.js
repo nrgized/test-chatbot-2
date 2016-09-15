@@ -47,7 +47,10 @@ app.post('/webhook/', function (req, res) {
                       "text":"Pasidalink savo buvimo vieta: ",
                       "quick_replies":[
                         {
-                          "content_type" : "location"
+                          "content_type":"location",
+                          "title":"location",
+                          "payload":"findcar",
+                          "image_url":"http://petersfantastichats.com/img/green.png"
                         }
                       ]
                     }
