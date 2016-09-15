@@ -75,8 +75,8 @@ app.post('/webhook/', function (req, res) {
               getNearestCars(UserLat, UserLng);
             }
           }
-
-        }
+     
+        }  
        
 
 // end of location check
