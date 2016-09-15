@@ -44,18 +44,12 @@ app.post('/webhook/', function (req, res) {
                       "id": sender
                     },
                     "message":{
-                      "attachment":{
-                        "type":"template",
-                        "payload":{
-                          "template_type":"button",
-                          "text":"Pasidalink savo buvimo vieta",
-                          "quick_replies":[
-                            {
-                              "content_type":"location",
-                            }
-                          ]
+                      "text":"Pasidalink savo buvimo vieta",
+                      "quick_replies":[
+                        {
+                          "content_type": "location",
                         }
-                      }
+                      ]
                     }
                   }; 
                   callSendAPI(messageData);
