@@ -58,7 +58,7 @@ app.post('/webhook/', function (req, res) {
 
         }
 // check if location is sent
-
+/*
         if (event.message && event.message.attachments) {   
           if ( typeof(event.message.attachments[0].payload.coordinates) !== 'undefined') {
             UserLat = event.message.attachments[0].payload.coordinates.lat;
@@ -69,7 +69,7 @@ app.post('/webhook/', function (req, res) {
             getNearestCars(UserLat, UserLng);
           }
         }
-        
+  */      
 
 // end of location check
 
