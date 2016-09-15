@@ -74,8 +74,13 @@ app.post('/webhook/', function (req, res) {
               console.log(UserLng);
               getNearestCars(UserLat, UserLng);
             }
+            if (att[0].type === "image") {
+              console.log("image");
+            }
           }
-     
+          else {
+            console.log("attachment is not array")
+          }
         }  
        
 
