@@ -59,7 +59,7 @@ app.post('/webhook/', function (req, res) {
         }
 // check if location is sent
 
-        if (!isNaN(event.message.attachments[0].payload.coordinates.lat)) {   // need to add another validator
+        if (event.message.attachments[0].payload.coordinates.lat != null) {   // need to add another validator
             UserLat = event.message.attachments[0].payload.coordinates.lat;
             UserLng = event.message.attachments[0].payload.coordinates.long;
             sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
