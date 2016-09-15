@@ -57,18 +57,25 @@ app.post('/webhook/', function (req, res) {
           }
 
         }
-// check if location is sent
+// handle attachment
+
 
         if (event.message && event.message.attachments) {   
           var att = event.message.attachments;
+
+          // check if attachemtn is array
+
           if(Array.isArray(att)){
-            UserLat = event.message.attachments[0].payload.coordinates.lat;
-            UserLng = event.message.attachments[0].payload.coordinates.long;
-            sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
-            console.log(UserLat);
-            console.log(UserLng);
-            getNearestCars(UserLat, UserLng);
+            if (att[0].type === "location") {
+              UserLat = event.message.attachments[0].payload.coordinates.lat;
+              UserLng = event.message.attachments[0].payload.coordinates.long;
+              sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
+              console.log(UserLat);
+              console.log(UserLng);
+              getNearestCars(UserLat, UserLng);
+            }
           }
+
         }
       
 
