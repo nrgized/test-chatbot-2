@@ -31,6 +31,12 @@ app.post('/webhook/', function (req, res) {
         var UserLat;
         var UserLng;
         var UserLocation;
+// check if received message is postback
+        if (event.postback && event.postback.payload) {
+
+          console.log("postback");
+
+        }
 // check if location is sent
 
         if (event.message && event.message.attachments) {   // need to add another validator
