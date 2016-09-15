@@ -34,7 +34,11 @@ app.post('/webhook/', function (req, res) {
 // check if received message is postback
         if (event.postback && event.postback.payload) {
 
-          console.log("postback");
+          // check for postback cases
+
+          if (event.postback.payload === 'search') {
+            console.log('search');
+          }
 
         }
 // check if location is sent
@@ -471,8 +475,8 @@ function changeThreadSettings() {
             },
             {
               "type":"postback",
-              "title":"Start a New Order",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
+              "title":"Ieškoti artimiausios mašinos",
+              "payload":"search"
             },
             {
               "type":"web_url",
