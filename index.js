@@ -548,7 +548,7 @@ function changeThreadSettings() {
           call_to_actions:[
             {
               "type":"postback",
-              "title":"Pasirinkti automobilio tipa",
+              "title":"Pasirinkti tipa",
               "payload":"select"
             },
             {
