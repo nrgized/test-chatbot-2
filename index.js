@@ -553,7 +553,7 @@ function changeThreadSettings() {
             },
             {
               "type":"postback",
-              "title":"Ieškoti artimiausio automobilio",
+              "title":"Ieškoti artimiausio",
               "payload":"search"
             },
             {
