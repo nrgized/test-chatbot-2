@@ -549,7 +549,7 @@ function changeThreadSettings() {
             {
               "type":"postback",
               "title":"Pasirinkti automobilio tipa",
-              "payload":"select_type"
+              "payload":"select"
             },
             {
               "type":"postback",
