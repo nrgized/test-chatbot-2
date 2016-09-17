@@ -36,6 +36,50 @@ app.post('/webhook/', function (req, res) {
 
           // check for postback cases
 
+
+          if (event.postback.payload === 'select') {
+            console.log('select');
+
+                  var messageData = {
+                    "recipient":{
+                      "id": sender
+                    },
+                    "message":{
+                      "text":"Pasirink automobilio tipa",
+                      "quick_replies":[
+                        {
+                          "content_type":"text",
+                          "title":"Praktiški",
+                          "payload":"select_practical"
+                        },
+                        {
+                          "content_type":"text",
+                          "title":"Komfortiški",
+                          "payload":"select_comfort"
+                        },     
+                        {
+                          "content_type":"text",
+                          "title":"Krovininiai",
+                          "payload":"select_cargo"
+                        },
+                        {
+                          "content_type":"text",
+                          "title":"Rinktiniai",
+                          "payload":"select_premium"
+                        }
+                      ]
+                    }
+                  }; 
+                  callSendAPI(messageData);
+
+          }
+/*
+          if (event.postback.payload === 'select_practical') {
+
+          }
+
+*/
+
           if (event.postback.payload === 'search') {
             console.log('search');
 
@@ -49,8 +93,8 @@ app.post('/webhook/', function (req, res) {
                         {
                           "content_type":"location",
                           "title":"location",
-                          "payload":"findcar",
-                          "image_url":"http://petersfantastichats.com/img/green.png"
+                          "payload":"findcar"
+                         // "image_url":"http://petersfantastichats.com/img/green.png"
                         }
                       ]
                     }
@@ -504,12 +548,12 @@ function changeThreadSettings() {
           call_to_actions:[
             {
               "type":"postback",
-              "title":"Help",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
+              "title":"Pasirinkti automobilio tipa",
+              "payload":"select_type"
             },
             {
               "type":"postback",
-              "title":"Ieškoti artimiausios mašinos",
+              "title":"Ieškoti artimiausio automobilio",
               "payload":"search"
             },
             {
