@@ -49,17 +49,17 @@ app.post('/webhook/', function (req, res) {
                       "text":"Pasirink automobilio tipa",
                       "quick_replies":[
                         {
-                          "content_type":"text",
+                          "content_type":"postback",
                           "title":"Praktiški",
                           "payload":"select_practical"
                         },
                         {
-                          "content_type":"text",
+                          "content_type":"postback",
                           "title":"Komfortiški",
                           "payload":"select_comfort"
                         },     
                         {
-                          "content_type":"text",
+                          "content_type":"postback",
                           "title":"Krovininiai",
                           "payload":"select_cargo"
                         },
@@ -76,8 +76,9 @@ app.post('/webhook/', function (req, res) {
           }
 
           if (event.postback.payload === 'select_practical') {
-              var type = "0.23"
+              var type = "0.23";
               askLocation();
+              console.log("select_practical");
           }
 
 
