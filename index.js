@@ -49,17 +49,17 @@ app.post('/webhook/', function (req, res) {
                       "text":"Pasirink automobilio tipa",
                       "quick_replies":[
                         {
-                          "content_type":"postback",
+                          "content_type":"text",
                           "title":"Praktiški",
                           "payload":"select_practical"
                         },
                         {
-                          "content_type":"postback",
+                          "content_type":"text",
                           "title":"Komfortiški",
                           "payload":"select_comfort"
                         },     
                         {
-                          "content_type":"postback",
+                          "content_type":"text",
                           "title":"Krovininiai",
                           "payload":"select_cargo"
                         },
