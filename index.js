@@ -339,7 +339,7 @@ function getNearestCars(UserLat, UserLng) {
         // remove not needed types
         console.log(sender);
         
-        if (userOptions[sender].type) {
+        if (userOptions[sender].hasOwnProperty("type")) {
 
           var carType = userOptions[sender].type;
           console.log(carType);
