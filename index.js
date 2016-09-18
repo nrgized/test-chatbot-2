@@ -3,7 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
 var zones = [];
-var type;
+var userOptions = [];
+var userVars = {};
 
 app.use(bodyParser.json());
 
@@ -30,6 +31,8 @@ app.post('/webhook/', function (req, res) {
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
+        userOptions[sender] = {id: sender}
+        console.log(userOptions[sender];)
         var UserLat;
         var UserLng;
         var UserLocation;
