@@ -78,8 +78,10 @@ app.post('/webhook/', function (req, res) {
 
           if (event.postback.payload === 'selectpractical') {
               var type = "0.23";
+              event.sender.searchtype = "practical";
               askLocation();
               console.log("select_practical");
+
           }
 
 
@@ -334,7 +336,7 @@ function getNearestCars(UserLat, UserLng, type) {
         // remove not needed types
         
         console.log(type);
-
+        console.log(event.sender.searchtype);
         if (type) {
           for (i=0; i<opts.carslocations.length; i++) {
             if(opts.carslocations[i].tariffs.minutePrice.indexOf(type) < 0) {
