@@ -131,9 +131,9 @@ app.post('/webhook/', function (req, res) {
             continue
             }
             if (text === 'praktiški') {
-              userOptions[sender] = {id: sender, carType: "practical"}
+              userOptions[sender] = {id: sender, test: "practical"}
               askLocation();
-              console.log("select_practical");
+              console.log(userOptions[sender]);
             continue
             }
             if (text.charAt(0) == '#') {
