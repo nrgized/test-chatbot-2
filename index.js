@@ -124,7 +124,7 @@ app.post('/webhook/', function (req, res) {
                 changeThreadSettings();
             continue
             }
-            if (text === 'Praktiški') {
+            if (text === 'praktiški') {
                 askLocation();
                 type = "0,23";
             continue
