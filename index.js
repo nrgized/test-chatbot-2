@@ -359,9 +359,9 @@ function getNearestCars(UserLat, UserLng) {
         console.log(type);
         console.log(userOptions[sender]);
         if (type) {
-          for (i=0; i<opts.carslocations.length; i++) {
-            if(opts.carslocations[i].tariffs.minutePrice.indexOf(type) < 0) {
-              opts.carslocations.splice(i,1);
+          for (i=0; i<carslocations.length; i++) {
+            if(carslocations[i].tariffs.minutePrice.indexOf(type) < 0) {
+              carslocations.splice(i,1);
             } 
             else {
               //console.log("false")
