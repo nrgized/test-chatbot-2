@@ -3,7 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
 var zones = [];
- 
+var type;
+
 app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 5000));
@@ -31,7 +32,7 @@ app.post('/webhook/', function (req, res) {
         var UserLat;
         var UserLng;
         var UserLocation;
-        var type;
+       
 // check if received message is postback
         if (event.postback && event.postback.payload) {
 
@@ -126,8 +127,8 @@ app.post('/webhook/', function (req, res) {
             continue
             }
             if (text === 'praktiški') {
-                askLocation();
                 type = "0,23";
+                askLocation(type);
             continue
             }
             if (text.charAt(0) == '#') {
@@ -419,7 +420,7 @@ function getNearestCars(UserLat, UserLng, type) {
               carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text
             }
 
-
+            type = "";
             sendNearestCars(Origin);
 
 
@@ -719,7 +720,7 @@ function sendGenericMessage(recipientId) {
 
 // send quick reply to share location
 
-function askLocation() {
+function askLocation(type) {
     var messageData = {
       "recipient":{
         "id": sender
