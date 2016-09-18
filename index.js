@@ -375,7 +375,8 @@ function getNearestCars(UserLat, UserLng) {
           }
         }
 
-
+        console.log(carlocations);
+        console.log(carlocations.length);
         // continue checking what is near
 
 
