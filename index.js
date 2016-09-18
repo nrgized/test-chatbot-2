@@ -123,6 +123,11 @@ app.post('/webhook/', function (req, res) {
                 changeThreadSettings();
             continue
             }
+            if (text === 'Praktiški') {
+                askLocation();
+                type = "0,23";
+            continue
+            }
             if (text.charAt(0) == '#') {
                 console.log("groteles");
                 var matches = [];
@@ -324,6 +329,9 @@ function getNearestCars(UserLat, UserLng, type) {
         var carlocations = JSON.parse(carlocationsString);
 
         // remove not needed types
+        
+        console.log(type);
+
         if (type) {
           for (i=0; i<opts.carslocations.length; i++) {
             if(opts.carslocations[i].tariffs.minutePrice.indexOf(type) < 0) {
