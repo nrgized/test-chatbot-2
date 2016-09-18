@@ -31,8 +31,8 @@ app.post('/webhook/', function (req, res) {
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
-        userOptions[sender] = {id: sender, test: "tests"}
-        console.log(userOptions[sender]);
+    //    userOptions[sender] = {id: sender, test: "tests"}
+    //    console.log(userOptions[sender]);
         var UserLat;
         var UserLng;
         var UserLocation;
@@ -131,7 +131,7 @@ app.post('/webhook/', function (req, res) {
             continue
             }
             if (text === 'praktiški') {
-              userOptions[sender] = {id: sender, test: "practical"}
+              userOptions[sender] = {id: sender, type: "practical"}
               askLocation();
               console.log(userOptions[sender]);
             continue
