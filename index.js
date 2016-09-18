@@ -338,22 +338,27 @@ function getNearestCars(UserLat, UserLng) {
         var type;
         // remove not needed types
         console.log(sender);
-        var carType = userOptions[sender].type;
-        console.log(carType);
-        if (carType === "practical") {
-          type = "0,18";
-        }
-        else if (carType === "comfort") {
-          type = "0,23";
-        }
-        else if (carType === "cargo") {
-          type = "0,25";
-        }
-        else if (carType === "premium") {
-          type = "0,39"
-        }
-        else {
-          type = "";
+        
+        if (userOptions[sender].type) {
+
+          var carType = userOptions[sender].type;
+          console.log(carType);
+          if (carType === "practical") {
+            type = "0,18";
+          }
+          else if (carType === "comfort") {
+            type = "0,23";
+          }
+          else if (carType === "cargo") {
+            type = "0,25";
+          }
+          else if (carType === "premium") {
+            type = "0,39"
+          }
+          else {
+            type = "";
+          }
+
         }
 
         console.log(type);
