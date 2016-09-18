@@ -51,22 +51,22 @@ app.post('/webhook/', function (req, res) {
                         {
                           "content_type":"text",
                           "title":"Praktiški",
-                          "payload":"select_practical"
+                          "payload":"selectpractical"
                         },
                         {
                           "content_type":"text",
                           "title":"Komfortiški",
-                          "payload":"select_comfort"
+                          "payload":"selectcomfort"
                         },     
                         {
                           "content_type":"text",
                           "title":"Krovininiai",
-                          "payload":"select_cargo"
+                          "payload":"selectcargo"
                         },
                         {
                           "content_type":"text",
                           "title":"Rinktiniai",
-                          "payload":"select_premium"
+                          "payload":"selectpremium"
                         }
                       ]
                     }
@@ -75,7 +75,7 @@ app.post('/webhook/', function (req, res) {
 
           }
 
-          if (event.postback.payload === 'select_practical') {
+          if (event.postback.payload === 'selectpractical') {
               var type = "0.23";
               askLocation();
               console.log("select_practical");
