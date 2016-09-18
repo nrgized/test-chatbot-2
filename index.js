@@ -340,16 +340,16 @@ function getNearestCars(UserLat, UserLng) {
         
         var carType = userOptions[sender].type;
 
-        if carType === "practical" {
+        if (carType === "practical") {
           type = "0,18";
         }
-        if carType === "comfort" {
+        if (carType === "comfort") {
           type = "0,23";
         }
-        if carType === "cargo" {
+        if (carType === "cargo") {
           type = "0,25";
         }
-        if carType === "premium" {
+        if (carType === "premium") {
           type = "0,39"
         }
         else {
