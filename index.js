@@ -32,7 +32,7 @@ app.post('/webhook/', function (req, res) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
         userOptions[sender] = {id: sender}
-        console.log(userOptions[sender];)
+        console.log(userOptions[sender]);
         var UserLat;
         var UserLng;
         var UserLocation;
