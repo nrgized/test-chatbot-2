@@ -337,9 +337,9 @@ function getNearestCars(UserLat, UserLng) {
         var carlocations = JSON.parse(carlocationsString);
         var type;
         // remove not needed types
-        
+        console.log(sender);
         var carType = userOptions[sender].type;
-
+        console.log(carType);
         if (carType === "practical") {
           type = "0,18";
         }
