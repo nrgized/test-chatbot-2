@@ -81,8 +81,7 @@ app.post('/webhook/', function (req, res) {
           }
 
           if (event.postback.payload === 'selectpractical') {
-              var type = "0.23";
-              event.sender.searchtype = "practical";
+              userOptions[sender] = {id: sender, carType: "practical"}
               askLocation();
               console.log("select_practical");
 
@@ -110,8 +109,7 @@ app.post('/webhook/', function (req, res) {
               sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
               console.log(UserLat);
               console.log(UserLng);
-              console.log(type);
-              getNearestCars(UserLat, UserLng, type);
+              getNearestCars(UserLat, UserLng);
             }
             if (att[0].type === "image") {
               console.log("image");
@@ -133,8 +131,9 @@ app.post('/webhook/', function (req, res) {
             continue
             }
             if (text === 'praktiški') {
-                type = "0,23";
-                askLocation(type);
+              userOptions[sender] = {id: sender, carType: "practical"}
+              askLocation();
+              console.log("select_practical");
             continue
             }
             if (text.charAt(0) == '#') {
@@ -340,7 +339,7 @@ function getNearestCars(UserLat, UserLng, type) {
         // remove not needed types
         
         console.log(type);
-        console.log(event.sender.searchtype);
+        console.log(userOptions[sender]);
         if (type) {
           for (i=0; i<opts.carslocations.length; i++) {
             if(opts.carslocations[i].tariffs.minutePrice.indexOf(type) < 0) {
