@@ -31,6 +31,7 @@ app.post('/webhook/', function (req, res) {
         var UserLat;
         var UserLng;
         var UserLocation;
+        var type;
 // check if received message is postback
         if (event.postback && event.postback.payload) {
 
@@ -73,34 +74,16 @@ app.post('/webhook/', function (req, res) {
                   callSendAPI(messageData);
 
           }
-/*
-          if (event.postback.payload === 'select_practical') {
 
+          if (event.postback.payload === 'select_practical') {
+              var type = "0.23"
+              askLocation();
           }
 
-*/
 
           if (event.postback.payload === 'search') {
             console.log('search');
-
-                  var messageData = {
-                    "recipient":{
-                      "id": sender
-                    },
-                    "message":{
-                      "text":"Pasidalink savo buvimo vieta: ",
-                      "quick_replies":[
-                        {
-                          "content_type":"location",
-                          "title":"location",
-                          "payload":"findcar"
-                         // "image_url":"http://petersfantastichats.com/img/green.png"
-                        }
-                      ]
-                    }
-                  }; 
-                  callSendAPI(messageData);
-
+              askLocation();
           }
 
         }
@@ -310,8 +293,9 @@ function getStopsData() {
 
 // find nearest car
 
-function getNearestCars(UserLat, UserLng) {
+function getNearestCars(UserLat, UserLng, type) {
   var url = 'https://login.citybee.lt/lt/';
+
   request({
     headers: {
       'Cookie': 'PHPSESSID=7jr278b6p6t2dssg9orisikd80; device_view=full; BCSI-CS-97976de0be87e764=2; BIGipServerglosC-proxyVIP-bc-RBB-web_gdcsfscs05-55_8050_pool=3242406179.29215.0000; _ga=GA1.2.500491733.1468570414; BCSI-CS-b933f65a4f518259=2; BIGipServerSlough-proxyVIP-bc-RBB-web-SLGSFSCS105-155_8050_pool=3778638102.29215.0000; __utmt=1; __utma=269912044.500491733.1468570414.1468570425.1468587689.2; __utmb=269912044.4.10.1468587689; __utmc=269912044; __utmz=269912044.1468587689.2.2.utmcsr=citybee.lt|utmccn=(referral)|utmcmd=referral|utmcct=/lt/'
@@ -338,6 +322,23 @@ function getNearestCars(UserLat, UserLng) {
         carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf("bicycleZonesLocations"));
         carlocationsString = carlocationsString.substring(0, carlocationsString.lastIndexOf(","));
         var carlocations = JSON.parse(carlocationsString);
+
+        // remove not needed types
+        if (type) {
+          for (i=0; i<opts.carslocations.length; i++) {
+            if(opts.carslocations[i].tariffs.minutePrice.indexOf(type) < 0) {
+              opts.carslocations.splice(i,1);
+            } 
+            else {
+              //console.log("false")
+            } 
+          }
+        }
+
+
+        // continue checking what is near
+
+
         var OriginLat = UserLat;
         var OriginLong = UserLng;
         var p = 0.017453292519943295;    // Math.PI / 180
@@ -706,8 +707,27 @@ function sendGenericMessage(recipientId) {
   callSendAPI(messageData);
 };
 
+// send quick reply to share location
 
-
+function askLocation() {
+    var messageData = {
+      "recipient":{
+        "id": sender
+      },
+      "message":{
+        "text":"Pasidalink savo buvimo vieta: ",
+        "quick_replies":[
+          {
+            "content_type":"location",
+            "title":"location",
+            "payload":"findcar"
+           // "image_url":"http://petersfantastichats.com/img/green.png"
+          }
+        ]
+      }
+    }; 
+    callSendAPI(messageData);
+}
 
 
 
