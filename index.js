@@ -81,7 +81,7 @@ app.post('/webhook/', function (req, res) {
           }
 
           if (event.postback.payload === 'selectpractical') {
-              userOptions[sender] = {id: sender, test: "practical"}
+              userOptions[sender] = {id: sender, type: "practical"}
               askLocation();
               console.log("select_practical");
 
@@ -306,7 +306,7 @@ function getStopsData() {
 
 // find nearest car
 
-function getNearestCars(UserLat, UserLng, type) {
+function getNearestCars(UserLat, UserLng) {
   var url = 'https://login.citybee.lt/lt/';
 
   request({
@@ -335,9 +335,27 @@ function getNearestCars(UserLat, UserLng, type) {
         carlocationsString = carlocationsString.substring(0, carlocationsString.indexOf("bicycleZonesLocations"));
         carlocationsString = carlocationsString.substring(0, carlocationsString.lastIndexOf(","));
         var carlocations = JSON.parse(carlocationsString);
-
+        var type;
         // remove not needed types
         
+        var carType = userOptions[sender].type;
+
+        if carType === "practical" {
+          type = "0,18";
+        }
+        if carType === "comfort" {
+          type = "0,23";
+        }
+        if carType === "cargo" {
+          type = "0,25";
+        }
+        if carType === "premium" {
+          type = "0,39"
+        }
+        else {
+          type = "";
+        }
+
         console.log(type);
         console.log(userOptions[sender]);
         if (type) {
