@@ -81,7 +81,7 @@ app.post('/webhook/', function (req, res) {
           }
 
           if (event.postback.payload === 'selectpractical') {
-              userOptions[sender] = {id: sender, carType: "practical"}
+              userOptions[sender] = {id: sender, test: "practical"}
               askLocation();
               console.log("select_practical");
 
