@@ -343,13 +343,13 @@ function getNearestCars(UserLat, UserLng) {
         if (carType === "practical") {
           type = "0,18";
         }
-        if (carType === "comfort") {
+        else if (carType === "comfort") {
           type = "0,23";
         }
-        if (carType === "cargo") {
+        else if (carType === "cargo") {
           type = "0,25";
         }
-        if (carType === "premium") {
+        else if (carType === "premium") {
           type = "0,39"
         }
         else {
