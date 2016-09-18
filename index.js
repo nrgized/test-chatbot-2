@@ -103,7 +103,8 @@ app.post('/webhook/', function (req, res) {
               sendTextMessage(sender, "Ačiū. Ieškau artimiausių automobilių...");
               console.log(UserLat);
               console.log(UserLng);
-              getNearestCars(UserLat, UserLng);
+              console.log(type);
+              getNearestCars(UserLat, UserLng, type);
             }
             if (att[0].type === "image") {
               console.log("image");
