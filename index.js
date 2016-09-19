@@ -374,6 +374,7 @@ function getNearestCars(UserLat, UserLng) {
               console.log("keep");
             } 
           }
+          delete userOptions[sender].type;
         }
 
      //   console.log(carlocations);
@@ -464,6 +465,11 @@ function getNearestCars(UserLat, UserLng) {
             // send NearestCards Without walking distance
 
             sendNearestCars(Origin);
+
+            // delete selected type
+
+
+
           }
         }); 
 
