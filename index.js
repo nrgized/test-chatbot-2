@@ -479,9 +479,17 @@ function getNearestCars(UserLat, UserLng) {
           if (a.walkdistanceval < b.walkdistanceval) {
             return -1;
           }
+          if (a.walkdistanceval = "") {
+            return 1;
+          }
           // a must be equal to b
           return 0;
         });
+
+          console.log(carlocations[0].walkdistanceval);
+          console.log(carlocations[1].walkdistanceval);
+          console.log(carlocations[0].walkdistance);
+          console.log(carlocations[1].walkdistance);
 
 
 
