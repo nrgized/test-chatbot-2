@@ -129,7 +129,9 @@ app.post('/webhook/', function (req, res) {
             }
             if (text === 'komfortiški' || 'komfortiski') {
               userOptions[sender] = {id: sender, type: "comfort"}
+              console.log(userOptions[sender].type);
               askLocation();
+
             continue
             }
             if (text === 'krovininiai') {
@@ -366,7 +368,7 @@ function getNearestCars(UserLat, UserLng) {
             }
 
           }
-        }
+        
 
         console.log(type);
         console.log(userOptions[sender]);
@@ -374,15 +376,15 @@ function getNearestCars(UserLat, UserLng) {
           for (i=0; i<carlocations.length; i++) {
             if(carlocations[i].tariffs.minutePrice.indexOf(type) < 0) {
               carlocations.splice(i,1);
-              console.log("remove");
               i = i - 1;
             } 
             else {
-              console.log("keep");
+
             } 
           }
           delete userOptions[sender].type;
         }
+      } // end of if
 
      //   console.log(carlocations);
         console.log(carlocations.length);
