@@ -122,12 +122,12 @@ app.post('/webhook/', function (req, res) {
                 changeThreadSettings();
             continue
             }
-            if (text === 'praktiški' || 'praktiski') {
+            if (text === 'praktiški' || text === 'praktiski') {
               userOptions[sender] = {id: sender, type: "practical"}
               askLocation();
             continue
             }
-            if (text === 'komfortiški' || 'komfortiski') {
+            if (text === 'komfortiški' || text === 'komfortiski') {
               userOptions[sender] = {id: sender, type: "comfort"}
               console.log(userOptions[sender].type);
               askLocation();
