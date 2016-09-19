@@ -338,27 +338,28 @@ function getNearestCars(UserLat, UserLng) {
         var type;
         // remove not needed types
         console.log(sender);
-        
-        if (userOptions[sender].hasOwnProperty("type")) {
+        if (typeof userOptions[sender] != 'undefined') {
+          if (userOptions[sender].hasOwnProperty("type")) {
 
-          var carType = userOptions[sender].type;
-          console.log(carType);
-          if (carType === "practical") {
-            type = "0,18";
-          }
-          else if (carType === "comfort") {
-            type = "0,23";
-          }
-          else if (carType === "cargo") {
-            type = "0,25";
-          }
-          else if (carType === "premium") {
-            type = "0,39"
-          }
-          else {
-            type = "";
-          }
+            var carType = userOptions[sender].type;
+            console.log(carType);
+            if (carType === "practical") {
+              type = "0,18";
+            }
+            else if (carType === "comfort") {
+              type = "0,23";
+            }
+            else if (carType === "cargo") {
+              type = "0,25";
+            }
+            else if (carType === "premium") {
+              type = "0,39"
+            }
+            else {
+              type = "";
+            }
 
+          }
         }
 
         console.log(type);
@@ -366,7 +367,7 @@ function getNearestCars(UserLat, UserLng) {
         if (type) {
           for (i=0; i<carlocations.length; i++) {
             if(carlocations[i].tariffs.minutePrice.indexOf(type) < 0) {
-              carlocations.splice(i ,1);
+              carlocations.splice(i,1);
               console.log("remove");
             } 
             else {
