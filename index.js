@@ -462,7 +462,7 @@ function getNearestCars(UserLat, UserLng) {
 
             for (i = 0; i < z; i++) {
                 carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text;
-                carlocations[i].walkdistanceval = distanceDetails.rows[0].elements[i].duration.value;
+                carlocations[i].walkdistanceval = distanceDetails.rows[0].elements[i].distance.value;
 
               }
 
@@ -479,6 +479,8 @@ function getNearestCars(UserLat, UserLng) {
           return 0;
         });
 
+          console.log(carlocations[0].walkdistanceval);
+          console.log(carlocations[1].walkdistanceval);
 
             sendNearestCars(Origin);
 
