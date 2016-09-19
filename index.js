@@ -466,6 +466,10 @@ function getNearestCars(UserLat, UserLng) {
 
               }
 
+          console.log(carlocations[0].walkdistanceval);
+          console.log(carlocations[1].walkdistanceval);
+          console.log(carlocations[0].walkdistance);
+          console.log(carlocations[1].walkdistance);
         // sort carlocations array by walking distance
 
         carlocations.sort(function (a, b) {
@@ -479,10 +483,7 @@ function getNearestCars(UserLat, UserLng) {
           return 0;
         });
 
-          console.log(carlocations[0].walkdistanceval);
-          console.log(carlocations[1].walkdistanceval);
-          console.log(carlocations[0].walkdistance);
-          console.log(carlocations[1].walkdistance);
+
 
             sendNearestCars(Origin);
 
