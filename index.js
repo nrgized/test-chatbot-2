@@ -481,6 +481,8 @@ function getNearestCars(UserLat, UserLng) {
 
           console.log(carlocations[0].walkdistanceval);
           console.log(carlocations[1].walkdistanceval);
+          console.log(carlocations[0].walkdistance);
+          console.log(carlocations[1].walkdistance);
 
             sendNearestCars(Origin);
 
