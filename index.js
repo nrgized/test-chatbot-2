@@ -408,6 +408,7 @@ function getNearestCars(UserLat, UserLng) {
                     (1 - c((lon2 - lon1) * p))/2;
             carlocations[i].distance = 12742 * Math.asin(Math.sqrt(a));
             carlocations[i].walkdistance = "";
+            carlocations[i].walkdistanceval = "";
 
         }
         // sort carlocations array by distance
@@ -460,16 +461,18 @@ function getNearestCars(UserLat, UserLng) {
             // add walking distance to 10 nearest stations if 10 exists
 
             for (i = 0; i < z; i++) {
-                carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text
+                carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text;
+                carlocations[i].walkdistanceval = distanceDetails.rows[0].elements[i].duration.value;
+
               }
 
         // sort carlocations array by walking distance
 
         carlocations.sort(function (a, b) {
-          if (a.walkdistance > b.walkdistance) {
+          if (a.walkdistanceval > b.walkdistanceval) {
             return 1;
           }
-          if (a.walkdistance < b.walkdistance) {
+          if (a.walkdistanceval < b.walkdistanceval) {
             return -1;
           }
           // a must be equal to b
