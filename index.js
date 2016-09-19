@@ -428,7 +428,7 @@ function getNearestCars(UserLat, UserLng) {
         var Origin = OriginLat + "," + OriginLong;
         var Destinations = "";
         var z;
-        if (carlocations.length >= 10) { z=10 } else { z=carlocations.length}
+        if (carlocations.length >= 25) { z=25 } else { z=carlocations.length}
           // loop through carlocations array to generate API url
         for (i = 0; i < z; i++) {
           Destinations += carlocations[i].lat;
@@ -463,6 +463,19 @@ function getNearestCars(UserLat, UserLng) {
                 carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text
               }
 
+        // sort carlocations array by walking distance
+
+        carlocations.sort(function (a, b) {
+          if (a.walkdistance > b.walkdistance) {
+            return 1;
+          }
+          if (a.walkdistance < b.walkdistance) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+
 
             sendNearestCars(Origin);
 
@@ -475,9 +488,10 @@ function getNearestCars(UserLat, UserLng) {
 
             // send NearestCards Without walking distance
 
+            //
+
             sendNearestCars(Origin);
 
-            // delete selected type
 
 
 
