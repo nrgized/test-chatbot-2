@@ -427,8 +427,10 @@ function getNearestCars(UserLat, UserLng) {
         var googleAPIkey = "AIzaSyBi5yJFId0hOqgw-_gw2R-SQJtqf3zE2hU";
         var Origin = OriginLat + "," + OriginLong;
         var Destinations = "";
+        var z;
+        if (carlocations.length >= 10) { z=10 } else { z=carlocations.length}
           // loop through carlocations array to generate API url
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < z; i++) {
           Destinations += carlocations[i].lat;
           Destinations += ",";
           Destinations += carlocations[i].lon;
@@ -456,8 +458,7 @@ function getNearestCars(UserLat, UserLng) {
             var distanceDetails = JSON.parse(body);
             console.log(distanceDetails);
             // add walking distance to 10 nearest stations if 10 exists
-            var z;
-            if (carlocations.length >= 10) { z=10 } else { z=carlocations.length}
+
             for (i = 0; i < z; i++) {
                 carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text
               }
