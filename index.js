@@ -367,7 +367,7 @@ function getNearestCars(UserLat, UserLng) {
         if (type) {
           for (i=0; i<carlocations.length; i++) {
             if(carlocations[i].tariffs.minutePrice.indexOf(type) < 0) {
-              carlocations.splice(i,1);
+              carlocations[i].splice(i,1);
               console.log("remove");
             } 
             else {
