@@ -80,14 +80,6 @@ app.post('/webhook/', function (req, res) {
 
           }
 
-          if (event.postback.payload === 'selectpractical') {
-              userOptions[sender] = {id: sender, type: "practical"}
-              askLocation();
-              console.log("select_practical");
-
-          }
-
-
           if (event.postback.payload === 'search') {
             console.log('search');
               askLocation();
@@ -130,10 +122,24 @@ app.post('/webhook/', function (req, res) {
                 changeThreadSettings();
             continue
             }
-            if (text === 'praktiški') {
+            if (text === 'praktiški' || 'praktiski') {
               userOptions[sender] = {id: sender, type: "practical"}
               askLocation();
-              console.log(userOptions[sender]);
+            continue
+            }
+            if (text === 'komfortiški' || 'komfortiski') {
+              userOptions[sender] = {id: sender, type: "comfort"}
+              askLocation();
+            continue
+            }
+            if (text === 'krovininiai') {
+              userOptions[sender] = {id: sender, type: "cargo"}
+              askLocation();
+            continue
+            }
+            if (text === 'rinktiniai') {
+              userOptions[sender] = {id: sender, type: "premium"}
+              askLocation();
             continue
             }
             if (text.charAt(0) == '#') {
