@@ -455,13 +455,14 @@ function getNearestCars(UserLat, UserLng) {
             
             var distanceDetails = JSON.parse(body);
             console.log(distanceDetails);
-            // add walking distance to 10 nearest stations
+            // add walking distance to 10 nearest stations if 10 exists
+            var z;
+            if (carlocations.length >= 10) { z=10 } else { z=carlocations.length}
+            for (i = 0; i < z; i++) {
+                carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text
+              }
 
-            for (i = 0; i < 10; i++) {
-              carlocations[i].walkdistance = distanceDetails.rows[0].elements[i].duration.text
-            }
 
-            type = "";
             sendNearestCars(Origin);
 
 
