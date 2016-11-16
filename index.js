@@ -274,7 +274,7 @@ function getStopsData() {
         carlocationsString = carlocationsString.substring(0, carlocationsString.lastIndexOf(","));
         var carlocations = JSON.parse(carlocationsString);
        //console.log(carlocations[300].lat); 
-
+        console.log(carlocations);
       // loop through car locations
 
 
